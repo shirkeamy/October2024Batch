@@ -1,4 +1,9 @@
+var numberVar = 20;
+console.log(numberVar);
 var a = "Hello World";
 console.log(a);
-var num1 = 10;
-console.log(num1);
+document.addEventListener("DOMContentLoaded", function () {
+    var heading = document.createElement("h2");
+    heading.textContent = a;
+    document.body.appendChild(heading);
+});
