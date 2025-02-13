@@ -1,6 +1,17 @@
+
+
+const numberVar: number = 20;
+console.log(numberVar);
+
 const a: string = "Hello World";
 console.log(a);
 
+document.addEventListener("DOMContentLoaded", () => {
 
-const num1: number = 10;
-console.log(num1);
+    let heading = document.createElement("h2");
+
+    heading.textContent = a;
+
+    document.body.appendChild(heading);
+
+})
