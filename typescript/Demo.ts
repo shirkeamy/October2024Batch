@@ -13,5 +13,3 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(heading);
 
 })
-
-// End of demo ts
