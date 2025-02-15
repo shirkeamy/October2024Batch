@@ -32,3 +32,34 @@ EmployeeDetail = {
 console.log(EmployeeDetail);
 console.log(EmployeeDetail.name);
 console.log(EmployeeDetail.dob);
+var users = {
+    FirstName: "JOhn",
+    LastName: "Doe",
+    MidName: "Dan",
+    DOB: new Date('1993/01/01'),
+    Telephone: 12354213,
+    Gender: "Male",
+    CavVote: true
+};
+document.addEventListener("DOMContentLoaded", function () {
+    var heading = document.createElement("h3");
+    heading.textContent = JSON.stringify(users);
+    document.body.appendChild(heading);
+});
+///////////////////////////////////////////////////
+var OperationTypes;
+(function (OperationTypes) {
+    OperationTypes["Insert"] = "I";
+    OperationTypes["Update"] = "U";
+    OperationTypes["Delete"] = "D";
+})(OperationTypes || (OperationTypes = {}));
+var operation = "U";
+if (operation === OperationTypes.Insert) {
+    console.log('Operation insert');
+}
+if (operation === OperationTypes.Update) {
+    console.log('Operation update');
+}
+if (operation === OperationTypes.Delete) {
+    console.log('Operation delete');
+}
