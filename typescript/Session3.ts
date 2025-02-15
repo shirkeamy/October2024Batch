@@ -25,3 +25,24 @@ document.addEventListener("DOMContentLoaded", ()=>{
     document.body.appendChild(heading);
 
 })
+
+
+///////////////////////////////////////////////////
+
+enum OperationTypes {
+    Insert = "I",
+    Update = "U",
+    Delete = "D"
+}
+
+const operation: string = "U";
+
+if (operation === OperationTypes.Insert) {
+    console.log('Operation insert')
+}
+if (operation === OperationTypes.Update) {
+    console.log('Operation update')
+}
+if (operation === OperationTypes.Delete) {
+    console.log('Operation delete')
+}
