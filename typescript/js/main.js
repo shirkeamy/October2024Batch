@@ -63,3 +63,9 @@ if (operation === OperationTypes.Update) {
 if (operation === OperationTypes.Delete) {
     console.log('Operation delete');
 }
+///////////////////////////////////////
+// Array
+//////////////////////////////////////
+var userNames = ['John', 'Hope', 'Ben', 'Peter', 'Robert'];
+console.log(userNames);
+console.log("first user from userNames array: ", userNames[0]);
