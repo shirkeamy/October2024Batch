@@ -27,3 +27,17 @@ let EmployeeDetails: IUserInfo = {
 }
 
 console.log(EmployeeDetails);
+
+const secondVar: IUserInfo = {
+    FirstName: "Peter",
+    MidName: "Eng",
+    LastName: "Sam",
+    DOB: new Date('1990/01/01'),
+    Telephone: 5121021,
+    CanVote: true,
+    Gender: "Male"
+}
+
+console.log(secondVar);
+console.warn(secondVar.FirstName);
+console.error(secondVar.LastName);
