@@ -107,3 +107,11 @@ const userList: IUserInfo[] = [
 ]
 
 console.log("userList: ", userList);
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    let divElement = document.createElement("div");
+    divElement.textContent = JSON.stringify(userList);
+    document.body.appendChild(divElement);
+    
+});
