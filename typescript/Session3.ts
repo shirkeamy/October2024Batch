@@ -78,3 +78,6 @@ if(operation === OperationTypes.Delete) {
 const arr1: string[] = ["string1", "string2", "string3"];
 
 console.log(arr1[1]);
+
+const numbers: number[] = [1,2,3,4,5,6,7];
+console.log('type 1: number from index 0 is: ', numbers[0]);
