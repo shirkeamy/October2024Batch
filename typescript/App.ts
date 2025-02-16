@@ -35,3 +35,11 @@ EmployeeDetail = {
 console.log(EmployeeDetail)
 console.log(EmployeeDetail.name)
 console.log(EmployeeDetail.dob)
+
+let userInfo: {
+    name: string;
+    age: number;
+    salary: number;
+    isActive: boolean;
+    dob: Date;
+}
