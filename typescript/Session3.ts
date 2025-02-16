@@ -68,3 +68,13 @@ else if(operation === OperationTypes.Update) {
 if(operation === OperationTypes.Delete) {
     console.log("Delete operation")
 }
+
+
+//////
+// Array 
+// more than one value can store in array (same data type)
+//////
+
+const arr1: string[] = ["string1", "string2", "string3"];
+
+console.log(arr1[1]);
