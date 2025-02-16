@@ -41,3 +41,30 @@ const secondVar: IUserInfo = {
 console.log(secondVar);
 console.warn(secondVar.FirstName);
 console.error(secondVar.LastName);
+
+//////
+//Enum
+/////
+
+enum OperationType {
+    Insert = 1, // default value is 0
+    Update,
+    Delete
+}
+
+enum OperationTypes {
+    Insert = "I",
+    Update = "U",
+    Delete = "D"
+}
+
+const operation: string = "D";
+if(operation === OperationTypes.Insert) {
+    console.log("Insert operation")
+}
+else if(operation === OperationTypes.Update) {
+    console.log("Update operation")
+}
+if(operation === OperationTypes.Delete) {
+    console.log("Delete operation")
+}
