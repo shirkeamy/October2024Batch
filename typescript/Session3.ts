@@ -84,3 +84,26 @@ console.log('type 1: number from index 0 is: ', numbers[0]);
 console.log('type 2: number from index 0 is: ' + numbers[1]);
 console.log(`type 3: number from index 0 is: ${numbers[2]}`);
 
+
+const userList: IUserInfo[] = [
+    {
+        FirstName: "John",
+        MidName: "",
+        LastName: "Hope",
+        DOB: new Date(),
+        Telephone: 45132,
+        CanVote: true,
+        Gender: "Male"
+    },
+    {
+        FirstName: "Perter",
+        MidName: "",
+        LastName: "Parker",
+        DOB: new Date('1990/01/01'),
+        Telephone: 8495465,
+        CanVote: true,
+        Gender: "Male"
+    }
+]
+
+console.log("userList: ", userList);
