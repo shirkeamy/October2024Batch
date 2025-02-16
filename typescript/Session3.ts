@@ -81,3 +81,6 @@ console.log(arr1[1]);
 
 const numbers: number[] = [1,2,3,4,5,6,7];
 console.log('type 1: number from index 0 is: ', numbers[0]);
+console.log('type 2: number from index 0 is: ' + numbers[1]);
+console.log(`type 3: number from index 0 is: ${numbers[2]}`);
+
