@@ -59,3 +59,39 @@ switch(grade) {
     } 
  }
 
+ document.addEventListener("DOMContentLoaded", () => {
+    let gradeInput = document.createElement("input");
+    let heading = document.createElement("h1");
+    heading.textContent = "Switch Case";
+    let checkGradeButton = document.createElement("button")
+    checkGradeButton.innerText = "Check grade";
+    let para = document.createElement("p");
+    checkGradeButton.addEventListener("click", () => {
+        switch(gradeInput.value) { 
+            case "A": { 
+                para.textContent = "Excellent"; 
+               break; 
+            } 
+            case "B": { 
+                para.textContent = "Good"; 
+               break; 
+            } 
+            case "C": {
+                para.textContent = "Fair"; 
+               break;    
+            } 
+            case "D": { 
+                para.textContent = "Poor";  
+               break; 
+            }  
+            default: { 
+               para.textContent = "Invalid choice"; 
+               break;              
+            } 
+         }
+    });
+    document.body.appendChild(heading)
+    document.body.appendChild(gradeInput)
+    document.body.appendChild(checkGradeButton);
+    document.body.appendChild(para)
+})
