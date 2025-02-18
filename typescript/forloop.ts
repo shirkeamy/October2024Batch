@@ -33,3 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.append(button)
 
 });
+
+
+///////////////////////
+// While and do while loop
+///////////////////////
+
+console.log("1. Print 1 to 10 numbers using while");
+
+let num: number = 1;
+while (num <= 10) {
+    console.log(num);
+    num = num + 1;
+}
