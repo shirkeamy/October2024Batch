@@ -46,3 +46,12 @@ while (num <= 10) {
     console.log(num);
     num = num + 1;
 }
+
+console.log("2. Print table of any numbers using while loop");
+
+let tableOf: number = 4;
+let numb: number = 1;
+while (numb <= 10) {
+    console.log(tableOf * numb);
+    numb = numb + 1;
+}
