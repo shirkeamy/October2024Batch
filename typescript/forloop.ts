@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 ///////////////////////
-// While and do while loop
+// While loop
 ///////////////////////
 
 console.log("1. Print 1 to 10 numbers using while");
@@ -55,3 +55,16 @@ while (numb <= 10) {
     console.log(tableOf * numb);
     numb = numb + 1;
 }
+
+///////////////////////
+// do while loop
+///////////////////////
+
+
+console.log("1. Print 1 to 10 numbers using do while");
+
+let numbs: number = 1;
+do {
+    console.log(numbs);
+    numbs = numbs + 1;
+} while (numbs <= 10)
