@@ -17,3 +17,19 @@ for (let i = 1; i <= factFor; i++) {
     factorial = factorial * i
 }
 console.log(factorial);
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    let textBox = document.createElement("input");
+    let button = document.createElement("button");
+    button.textContent = "get table"
+    button.addEventListener("click", () => {
+        console.log("Table for",textBox.value)
+        for (let i = 1; i <= 10; i++) {
+            console.log(parseInt(textBox.value) * i);
+        }
+    })
+    document.body.append(textBox)
+    document.body.append(button)
+
+});
