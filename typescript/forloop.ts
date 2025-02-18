@@ -68,3 +68,12 @@ do {
     console.log(numbs);
     numbs = numbs + 1;
 } while (numbs <= 10)
+
+console.log("2. Print table of any numbers using do while loop");
+
+let tableOfNum: number = 2;
+let Num: number = 1;
+do {
+    console.log(tableOfNum * Num);
+    Num = Num + 1;
+} while (Num <= 10)
