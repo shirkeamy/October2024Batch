@@ -37,3 +37,10 @@ const multiplication = (a: number, b: number) => {
 }
 
 console.log(`multiplication of given number is ${multiplication(2,2)}`)
+
+// Type 2
+const substraction: (a: number, b: number) => number = (a: number, b: number) => {
+    return a-b;
+}
+
+console.log(`substraction of given number is ${substraction(5,2)}`)
