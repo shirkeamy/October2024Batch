@@ -24,3 +24,16 @@ let division = function (a: number, b: number) {
 }
 
 console.log(`Division of given number is ${division(1,2)}`);
+
+/////////
+// way 3 - arrow function
+// this way is we use most of the time in the future (in react)
+////////
+
+
+// Type 1
+const multiplication = (a: number, b: number) => {
+    return a*b;
+}
+
+console.log(`multiplication of given number is ${multiplication(2,2)}`)
