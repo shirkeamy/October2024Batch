@@ -38,6 +38,11 @@ while (num <= 10) {
     num = num + 1;
 }
 
+
+////////
+/// do while loop
+////
+
 let number: number = 1;
 let table: number = 2;
 
