@@ -38,18 +38,15 @@ do {
 document.addEventListener("DOMContentLoaded", function () {
     var textBox = document.createElement("input");
     var button = document.createElement("button");
-    var div = document.createElement("div");
     button.textContent = "Get Table";
     button.addEventListener("click", function () {
         var number = 1;
         var table = parseInt(textBox.value);
         do {
             console.log("table from do while ".concat(table * number));
-            div.textContent = "table from do while ".concat(table * number);
             number = number + 1;
         } while (number <= 10);
     });
     document.body.append(textBox);
     document.body.append(button);
-    document.body.append(div);
 });
