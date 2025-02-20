@@ -29,6 +29,9 @@ while (num <= 10) {
     console.log("1 - 10 from while loop ".concat(num));
     num = num + 1;
 }
+////////
+/// do while loop
+////
 var number = 1;
 var table = 2;
 do {
