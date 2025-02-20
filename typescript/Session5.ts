@@ -50,7 +50,6 @@ do {
 document.addEventListener("DOMContentLoaded", () => {
     let textBox = document.createElement("input");
     let button = document.createElement("button");
-    let div = document.createElement("div");
     button.textContent = "Get Table";
     button.addEventListener("click", () => {
         let number: number = 1;
@@ -58,13 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         do {
             console.log(`table from do while ${table * number}`);
-            div.textContent = `table from do while ${table * number}`
             number = number + 1;
         } while (number <= 10);
     })
 
     document.body.append(textBox);
     document.body.append(button);
-    document.body.append(div);
 
 })
