@@ -17,9 +17,27 @@
         .triangle-right {
             width: 0;
             height: 0;
-            border-top: 25px solid transparent;
-            border-left: 50px solid;
-            border-bottom: 25px solid transparent;
+            border-top: 40px solid transparent;
+            border-left: 100px solid;
+            border-bottom: 40px solid transparent;
+        }
+
+        .compiler-section .ts {
+            background-color: blue;
+            color: white;
+            padding: 2rem;
+        }
+
+        .compiler-section .tsc {
+            background-color: black;
+            color: white;
+            padding: 2rem;
+        }
+
+        .compiler-section .js {
+            background-color: green;
+            color: white;
+            padding: 2rem;
         }
     </style>
 </head>
@@ -68,17 +86,25 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="row mt-5 mb-5">
-                                    <div class="col-md-12">
-                                        <span class="bg-primary text-white p-5 m-5">
+                                <div class="row mt-5 mb-5 compiler-section">
+                                    <div class="col-md-3">
+                                        <span class="ts">
                                             TypeScript
                                         </span>
+                                    </div>
+                                    <div class="col-md-1">
                                         <span class="triangle-right text-danger"></span>
-                                        <span class="bg-dark text-white p-5 m-5">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span class="tsc">
                                             TypeScript Compiler
                                         </span>
+                                    </div>
+                                    <div class="col-md-1">
                                         <span class="triangle-right text-warning"></span>
-                                        <span class="bg-success text-white p-5 m-5">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span class="js">
                                             Javascript
                                         </span>
                                     </div>
