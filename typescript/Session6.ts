@@ -21,3 +21,11 @@ const multiplication = (num1: number, num2: number) => {
 
 console.log(`multiplication of ${10} and ${5} is ${multiplication(10, 5)}`);
 
+const subtraction: (num1: number, num2: number) => number
+    = (num1: number, num2: number) => {
+        return num1 - num2;
+    }
+
+console.log(`subtraction of ${10} and ${5} is ${subtraction(10, 5)}`);
+
+
