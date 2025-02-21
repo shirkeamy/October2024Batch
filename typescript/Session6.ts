@@ -50,9 +50,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
         div.textContent = result.toString();
     })
 
+    subButton.addEventListener("click",()=>{
+        let result: number = subtraction(parseInt(num1.value), parseInt(num2.value))
+        div.textContent = result.toString();
+    })
+
     document.body.appendChild(num1)
     document.body.appendChild(num2)
     document.body.appendChild(addButton)
+    document.body.appendChild(subButton)
     document.body.appendChild(div)
 
 });
