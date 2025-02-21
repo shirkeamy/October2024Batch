@@ -4,3 +4,11 @@ function addition(num1: number, num2: number) {
 
 const res: number = addition(10, 20);
 console.log(res);
+
+const division = function (num1: number, num2: number) {
+
+    return num1 / num2;
+
+}
+
+console.log(`Division of ${10} and ${5} is ${division(10, 5)}`)
