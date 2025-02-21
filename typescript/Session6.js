@@ -36,9 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
         var result = subtraction(parseInt(num1.value), parseInt(num2.value));
         div.textContent = result.toString();
     });
+    MultButton.addEventListener("click", function () {
+        var result = multiplication(parseInt(num1.value), parseInt(num2.value));
+        div.textContent = result.toString();
+    });
     document.body.appendChild(num1);
     document.body.appendChild(num2);
     document.body.appendChild(addButton);
     document.body.appendChild(subButton);
+    document.body.appendChild(MultButton);
     document.body.appendChild(div);
 });
