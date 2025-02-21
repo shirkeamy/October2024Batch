@@ -32,8 +32,13 @@ document.addEventListener("DOMContentLoaded", function () {
         var result = addition(parseInt(num1.value), parseInt(num2.value));
         div.textContent = result.toString();
     });
+    subButton.addEventListener("click", function () {
+        var result = subtraction(parseInt(num1.value), parseInt(num2.value));
+        div.textContent = result.toString();
+    });
     document.body.appendChild(num1);
     document.body.appendChild(num2);
     document.body.appendChild(addButton);
+    document.body.appendChild(subButton);
     document.body.appendChild(div);
 });
