@@ -28,18 +28,22 @@ document.addEventListener("DOMContentLoaded", function () {
     var divButton = document.createElement("button");
     divButton.textContent = "Division";
     var div = document.createElement("div");
+    // Addition
     addButton.addEventListener("click", function () {
         var result = addition(parseInt(num1.value), parseInt(num2.value));
         div.textContent = result.toString();
     });
+    // subtraction
     subButton.addEventListener("click", function () {
         var result = subtraction(parseInt(num1.value), parseInt(num2.value));
         div.textContent = result.toString();
     });
+    // multiplication
     MultButton.addEventListener("click", function () {
         var result = multiplication(parseInt(num1.value), parseInt(num2.value));
         div.textContent = result.toString();
     });
+    // division
     divButton.addEventListener("click", function () {
         var result = division(parseInt(num1.value), parseInt(num2.value));
         div.textContent = result.toString();
