@@ -45,21 +45,25 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     let div = document.createElement("div");
 
+    // Addition
     addButton.addEventListener("click",()=>{
         let result: number = addition(parseInt(num1.value), parseInt(num2.value))
         div.textContent = result.toString();
     })
 
+    // subtraction
     subButton.addEventListener("click",()=>{
         let result: number = subtraction(parseInt(num1.value), parseInt(num2.value))
         div.textContent = result.toString();
     })
 
+    // multiplication
     MultButton.addEventListener("click",()=>{
         let result: number = multiplication(parseInt(num1.value), parseInt(num2.value))
         div.textContent = result.toString();
     })
 
+    // division
     divButton.addEventListener("click",()=>{
         let result: number = division(parseInt(num1.value), parseInt(num2.value))
         div.textContent = result.toString();
