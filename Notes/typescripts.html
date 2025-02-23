@@ -450,6 +450,90 @@ console.log(checkEvenOdd(10)); // Output: Even number
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#switch-case" aria-expanded="true" aria-controls="Introduction">
+                                <strong>Que 11 - How does a switch-case statement work? Give an example</strong>
+                            </button>
+                        </h2>
+                        <div id="switch-case" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <P>
+                                    The switch-case statement is used when you need to compare a single value against
+                                    multiple possible options
+                                </P>
+                                <p>
+                                    It is more efficient and readable than multiple if-else statements when dealing with
+                                    many conditions.
+                                </p>
+                                <p>
+                                    Each case is checked against the expression
+                                </p>
+                                <p>
+                                    The break statement prevents fall-through (without break, execution continues to the
+                                    next case)
+                                </p>
+                                <p>
+                                    The default case executes if no match is found
+                                </p>
+                                <strong>Example 1 - <small><em>Days of the Week</em></small></strong>
+                                <code>
+                                    <pre>
+let day: number = 3;
+
+switch (day) {
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  case 3:
+    console.log("Wednesday");
+    break;
+  case 4:
+    console.log("Thursday");
+    break;
+  case 5:
+    console.log("Friday");
+    break;
+  case 6:
+    console.log("Saturday");
+    break;
+  case 7:
+    console.log("Sunday");
+    break;
+  default:
+    console.log("Invalid day number");
+}
+
+                                    </pre>
+                                </code>
+                                <strong>Example 2 - <small><em>User Roles</em></small></strong>
+                                <code>
+                                    <pre>
+let role: string = "admin";
+
+switch (role) {
+  case "admin":
+    console.log("You have full access.");
+    break;
+  case "editor":
+    console.log("You can edit content.");
+    break;
+  case "viewer":
+    console.log("You can view content.");
+    break;
+  default:
+    console.log("Invalid role.");
+}
+
+                                    </pre>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
