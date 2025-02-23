@@ -169,6 +169,28 @@
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#executionPolicy" aria-expanded="true" aria-controls="Introduction">
+                                <strong>Que 4 - What is the execution policy issue in Windows, and how can it be
+                                    resolved?</strong>
+                            </button>
+                        </h2>
+                        <div id="executionPolicy" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <P>
+                                    Windows restricts script execution for security reasons.
+                                </P>
+                                <p>
+                                    It can be resolved using the command
+                                    <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code> in
+                                    <strong>PowerShell</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
