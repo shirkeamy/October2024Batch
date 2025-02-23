@@ -290,6 +290,50 @@ function getUser(): string | null {
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#Interface" aria-expanded="true" aria-controls="Introduction">
+                                <strong>Que 7 - Define and give an example of an Interface in TypeScript</strong>
+                            </button>
+                        </h2>
+                        <div id="Interface" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <P>
+                                    An interface in TypeScript defines a contract for an object, specifying the
+                                    properties and methods it must have. It helps with type checking and code
+                                    organization
+                                </P>
+                                <p>
+                                    Interfaces only exist at compile time and do not generate JavaScript code
+                                </p>
+                                <p>
+                                    Used for type safety and reusability
+                                </p>
+                                <p>
+                                    Can be implemented by classes and extended by other interfaces
+                                </p>
+                                <p>
+                                    Help in enforcing consistency across different parts of an application
+                                </p>
+                                <code>
+                                    <pre>
+interface Person {
+    name: string;
+    age: number;
+}
+
+const user: Person = {
+    name: "Alice",
+    age: 25
+};
+
+console.log(user.name); // Output: Alice                                          
+                                    </pre>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
