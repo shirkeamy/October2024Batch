@@ -402,6 +402,54 @@ console.log(DaysOfWeek[3]); // Output: "Wednesday" (Reverse Mapping)
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ifelse" aria-expanded="true" aria-controls="Introduction">
+                                <strong>Que 10 - Explain the use of if-else statements with an example</strong>
+                            </button>
+                        </h2>
+                        <div id="ifelse" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <P>
+                                    The if-else statement is used for conditional execution
+                                </P>
+                                <p>
+                                    It allows you to execute different code blocks based on whether a condition is true
+                                    or false.
+                                </p>
+                                <strong>Example 1 - <small><em>Check positive or negative number</em></small></strong>
+                                <code>
+                                    <pre>
+let num: number = 10;
+
+if (num > 0) {
+  console.log("The number is positive.");
+} else if (num &lt; 0) {
+  console.log("The number is negative.");
+} else {
+  console.log("The number is zero.");
+}
+                                    </pre>
+                                </code>
+                                <strong>Example 2 - <small><em>Check Even or Odd number</em></small></strong>
+                                <code>
+                                    <pre>
+function checkEvenOdd(num: number): string {
+    if (num % 2 === 0) {
+        return "Even number";
+    } else {
+        return "Odd number";
+    }
+}
+
+console.log(checkEvenOdd(7)); // Output: Odd number
+console.log(checkEvenOdd(10)); // Output: Even number                                          
+                                    </pre>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
