@@ -231,6 +231,65 @@
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#null-undefined" aria-expanded="true" aria-controls="Introduction">
+                                <strong>Que 6 - What are null and undefined in TypeScript? How do they behave?</strong>
+                            </button>
+                        </h2>
+                        <div id="null-undefined" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <P>
+                                    Both null and undefined represent absence of a value, but they behave differently in
+                                    TypeScript.
+                                </P>
+                                <h3>undefined</h3>
+                                <p>
+                                    Represents a variable that has been declared but not assigned a value
+                                </p>
+                                <p>
+                                    used as the default return value of functions that don't explicitly return anything
+                                </p>
+                                <strong>Example</strong>
+                                <code>
+                                    <pre>
+let x: undefined;
+console.log(x); <span class="text-success">// Output: undefined</span>
+
+let y;
+console.log(y); <span class="text-success">// Output: undefined (Implicitly assigned)</span>
+
+function doNothing(): void {
+    <span class="text-success">// No return statement</span>
+}
+console.log(doNothing()); <span class="text-success">// Output: undefined</span>
+
+                                    </pre>
+                                </code>
+                                <h3>null</h3>
+                                <p>
+                                    Represents an explicit absence of value
+                                </p>
+                                <p>
+                                    It’s a deliberate assignment to indicate "no value"
+                                </p>
+                                <p>
+                                    null must be manually assigned
+                                </p>
+                                <code>
+                                    <pre>
+let person: string | null = null; <span class="text-success">// Explicitly assigned</span>
+console.log(person); <span class="text-success">// Output: null</span>
+
+function getUser(): string | null {
+    return null; <span class="text-success">// Intentionally returning null</span>
+}                                        
+                                    </pre>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
