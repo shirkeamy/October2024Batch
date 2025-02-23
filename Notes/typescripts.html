@@ -374,6 +374,34 @@ console.log(Role.User); // Output: 1
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#enumExample" aria-expanded="true" aria-controls="Introduction">
+                                <strong>Que 9 - Write an example of an Enum representing days of the week.</strong>
+                            </button>
+                        </h2>
+                        <div id="enumExample" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <code>
+                                <pre>
+enum DaysOfWeek {
+    Sunday = 0,
+    Monday = 1,
+    Tuesday = 2,
+    Wednesday = 3,
+    Thursday = 4,
+    Friday = 5,
+    Saturday = 6
+}
+
+console.log(DaysOfWeek.Monday); // Output: 1
+console.log(DaysOfWeek[3]); // Output: "Wednesday" (Reverse Mapping)
+                                </pre>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
