@@ -588,6 +588,116 @@ switch (role) {
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#function" aria-expanded="true" aria-controls="Introduction">
+                                <strong>Que 13 - What are functions? How many ways to write function in
+                                    typescript?</strong>
+                            </button>
+                        </h2>
+                        <div id="function" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <P>
+                                    A function in TypeScript is a reusable block of code that performs a specific task.
+                                    It helps organize code, avoid repetition, and improve maintainability.
+                                </P>
+                                <p>
+                                    Functions can accept parameters, return values, and have type annotations to ensure
+                                    type safety
+                                </p>
+                                <ol>
+                                    <li>Regular/Normal Function / Named Function</li>
+                                    <li>Variable as function / Anonymous Function</li>
+                                    <li>Arrow Function / Lambda Function</li>
+                                    <li>Function with Default Parameters</li>
+                                    <li>Function with Optional Parameters</li>
+                                </ol>
+                                <p>
+                                    <strong>Exmaple 1 - Regular/Normal Function / Named Function</strong>
+                                    <code>
+                                        <pre>
+function greet(name: string): string {
+    return `Hello, ${name}!`;
+}
+
+console.log(greet("Alice")); // Output: Hello, Alice!
+
+                                        </pre>
+                                    </code>
+                                    <strong>Exmaple 2 - Variable as function / Anonymous Function</strong>
+                                    <code>
+                                        <pre>
+const add = function (a: number, b: number): number {
+    return a + b;
+};
+
+console.log(add(5, 3)); // Output: 8
+                                        </pre>
+                                    </code>
+                                    <strong>Exmaple 3 - Arrow Function / Lambda Function</strong>
+                                <p>
+                                    Type 1
+                                </p>
+                                <code>
+                                        <pre>
+const multiply = (a: number, b: number): number => a * b;
+
+console.log(multiply(4, 2)); // Output: 8
+                                        </pre>
+                                    </code>
+                                <p>
+                                    Type 2
+                                </p>
+                                <code>
+                                        <pre>
+const multiply = (a: number, b: number): number => {
+    return a * b;
+} 
+
+console.log(multiply(4, 2)); // Output: 8
+                                        </pre>
+                                    </code>
+                                <p>
+                                    Type 3
+                                </p>
+                                <code>
+                                        <pre>
+const multiply: (a: number, b: number) => number
+= (a: number, b: number) => {
+        return a * b;
+}
+
+console.log(multiply(4, 2)); // Output: 8
+                                        </pre>
+                                    </code>
+                                <strong>Exmaple 4 - Function with Default Parameters</strong>
+                                <code>
+                                        <pre>
+function greetUser(name: string = "Guest"): string {
+    return `Hello, ${name}!`;
+}
+
+console.log(greetUser()); // Output: Hello, Guest!
+                             
+                                        </pre>
+                                    </code>
+                                <strong>Exmaple 5 - Function with Optional Parameters</strong>
+                                <code>
+                                        <pre>
+function displayAge(name: string, age?: number): string {
+    return age ? `${name} is ${age} years old.` : `${name}'s age is unknown.`;
+}
+
+console.log(displayAge("Alice")); // Output: Alice's age is unknown.
+console.log(displayAge("Bob", 25)); // Output: Bob is 25 years old.
+
+                                        </pre>
+                                    </code>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
