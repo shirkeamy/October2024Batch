@@ -698,6 +698,60 @@ console.log(displayAge("Bob", 25)); // Output: Bob is 25 years old.
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#arrow-functions" aria-expanded="true" aria-controls="Introduction">
+                                <strong>Que 14 - What are arrow functions? How do they differ from normal
+                                    functions?</strong>
+                            </button>
+                        </h2>
+                        <div id="arrow-functions" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <P>
+                                    Arrow functions (=>) are a shorter syntax for writing functions in TypeScript.
+                                    They are also called lambda functions and are primarily used for concise one-liners,
+                                    callbacks, and functional programming.
+                                </P>
+                                <ul>
+                                    <li>If the function has only one statement, {} and return can be omitted.</li>
+                                    <li>If multiple statements exist, {} and return must be used.</li>
+                                </ul>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h3>Differences Between Arrow Functions and Normal Functions</h3>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Arrow function</th>
+                                                    <th>Normal function</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Arrow functions do not have their own this</td>
+                                                    <td>normal functions do</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>can't be used as a Constructor</td>
+                                                    <td>can be used as a Constructor</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>this Keyword can't be used in an arrow function</td>
+                                                    <td>this Keyword can be used in normal function</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Hoisting can't be achieved by using arrow function</td>
+                                                    <td>Hoisting can be achieved by using normal function</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
