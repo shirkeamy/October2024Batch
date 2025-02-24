@@ -339,6 +339,28 @@
                         </div>
                     </div>
 
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#default-param" aria-expanded="true" aria-controls="default-param">
+                                <strong>Que 12 - Write a function with default parameters that returns a greeting
+                                    message (e.g., "Hello, User!" if no name is provided, otherwise "Hello,
+                                    [Name]!").</strong>
+                            </button>
+                        </h2>
+                        <div id="default-param" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <code>
+                                    const getUserGreeting = (userName: string = "No User") => {<br>
+                                    &nbsp;return userName === "No User"  ? `Hello, User!` : `Hello, ${userName}!`;<br>
+                                    }<br>
+                                    <br>
+                                    console.log(getUserGreeting("John"));<br>
+                                    console.log(getUserGreeting());<br>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
 
 
 
