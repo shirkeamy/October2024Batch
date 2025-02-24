@@ -153,6 +153,38 @@
                         </div>
                     </div>
 
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#enumFn" aria-expanded="true" aria-controls="enumFn">
+                                <strong>Que 5 - Write a function that takes a role as input and prints a message based
+                                    on the role.</strong>
+                            </button>
+                        </h2>
+                        <div id="enumFn" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <code>
+                                    enum Roles {<br />
+                                       &nbsp;&nbsp; Admin,<br />
+                                       &nbsp;&nbsp; Editor,<br />
+                                       &nbsp;&nbsp; Viewer<br />
+                                    }<br /><br />
+                                    function getUserRole(userRole: Roles){<br />
+                                        &nbsp;&nbsp;if(userRole === Roles.Admin){<br />
+                                        &nbsp;&nbsp;&nbsp;    console.log("You are Admin");<br />
+                                        &nbsp;&nbsp;}else if (userRole === Roles.Viewer){<br />
+                                        &nbsp;&nbsp;&nbsp;    console.log("You are Viewer");<br />
+                                        &nbsp;&nbsp;}else if (userRole === Roles.Editor){<br />
+                                        &nbsp;&nbsp;&nbsp;   console.log("You are Editor");<br />
+                                        &nbsp;&nbsp;}<br />
+                                    }<br />
+                                    
+                                    getUserRole(Roles.Admin);
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+
 
 
 
