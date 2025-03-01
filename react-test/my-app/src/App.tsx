@@ -4,6 +4,7 @@ import './App.css';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
+import User from './Pages/User';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Home />
       <About />
       <Contact />
+      <User userName='John Doe' />
     </>
   );
 }
