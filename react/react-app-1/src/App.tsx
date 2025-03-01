@@ -1,17 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Home from './Pages/Home';
+import About from "./Pages/About";
+import Contact from './Pages/Contact';
+import User from './Pages/User';
 
 function App() {
 
-  const userName: string = "Peter";
+  const userName: string = "John Doe";
 
   return (
     <>
-      <h1 className="">Welcome, {userName}</h1>
-      <p>
-        {1 + 1}
-      </p>
+      {/* <Home></Home> */}
+      <Home />
+      <About />
+      <Contact />
+      <User userName={userName}  />
     </>
   );
 }
