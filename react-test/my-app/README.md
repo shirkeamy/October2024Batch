@@ -71,3 +71,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 >>1. Normal function component
 >>2. Function component using React.FC without props
 >>3. Function component using React.FC using props
+
+## Session 4
+
+1. Prop drilling
+2. Routing
