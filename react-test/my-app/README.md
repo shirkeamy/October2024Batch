@@ -44,3 +44,27 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+# Session wise notes
+
+## session 1
+
+1. Introduction
+2. Environment setup
+3. Create first application in create using below command
+
+`npx create-react-app@latest react-app-1 --template typescript`
+
+
+## Session 2
+
+1. JSX introduction
+2. Example to print user name and script code output from JSX
+
+## Session 3
+
+1. How to install bootstrap in react application - `npm install bootstrap@4.3.0`
+2. Create components
+> 1. Class component
+> 2. Function component
