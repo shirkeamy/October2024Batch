@@ -68,3 +68,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 2. Create components
 > 1. Class component
 > 2. Function component
+>>1. Normal function component
+>>2. Function component using React.FC without props
+>>3. Function component using React.FC using props
