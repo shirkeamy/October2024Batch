@@ -15,7 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <NavigationMenu />
-    <App />
+    <div className="container-fluid">
+      <App />
+    </div>
   </React.StrictMode>
 );
 
