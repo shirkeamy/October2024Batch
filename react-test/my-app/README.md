@@ -76,3 +76,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 1. Prop drilling
 2. Routing
+3. Cleanup application data
