@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import About from "./Pages/About";
 import Contact from './Pages/Contact';
 import User from './Pages/User';
+import CompoentA from './Components/CompoentA';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <About />
       <Contact />
       <User userName={userName}  />
+      <CompoentA name={userName} address={'Pune'}  />
     </>
   );
 }
