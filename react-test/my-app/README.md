@@ -77,3 +77,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 1. Prop drilling
 2. Routing
 3. Cleanup application data
+
+## Session 5
+
+1. React State
+>>1. Add simple state to set count
+>>2. Add form and set textbox values to state and print it on UI
+>>3. Use localStorage to store data and read it on another page
+>>4. Create one function outside compoent inside Utils folder
