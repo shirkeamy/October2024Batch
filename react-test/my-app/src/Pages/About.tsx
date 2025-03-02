@@ -1,6 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 
 function About() {
+
+    const [count, setCount] = useState<number>(0);
+
     return (
         <>
             <h1>
@@ -17,6 +20,12 @@ function About() {
                 <li>List item 2</li>
                 <li>List item 3</li>
             </ol>
+
+            <h3>Count is {count}</h3>
+            <button type="button"
+                onClick={() => { setCount(count + 1) }}
+                className="btn btn-sm btn-primary"
+            >Increase count</button>
         </>
 
     )
