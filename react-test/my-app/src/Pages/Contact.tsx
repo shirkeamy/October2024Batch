@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { onContactSubmit } from "../Utils/Functions";
 
 const Contact: React.FC = () => {
     const [emailId, setEmailId] = useState<string>("");
@@ -37,10 +38,10 @@ const Contact: React.FC = () => {
                                 className="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
-                                onChange={(e)=>{
-                                    const {value} = e.target;
+                                onChange={(e) => {
+                                    const { value } = e.target;
                                     setEmailId(value);
-                                }}    
+                                }}
                             />
                             <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                         </div>
@@ -50,8 +51,8 @@ const Contact: React.FC = () => {
                                 type="password"
                                 className="form-control"
                                 id="exampleInputPassword1"
-                                onBlur={(e)=>{
-                                    const {value} = e.target;
+                                onBlur={(e) => {
+                                    const { value } = e.target;
                                     setPassword(value);
                                 }}
                             />
@@ -65,7 +66,9 @@ const Contact: React.FC = () => {
                             />
                             <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                         </div>
-                        <button type="button" className="btn btn-primary">Submit</button>
+                        <button type="button" className="btn btn-primary"
+                            onClick={() => { onContactSubmit(emailId, password) }}
+                        >Submit</button>
                     </form>
                 </div>
             </div>
