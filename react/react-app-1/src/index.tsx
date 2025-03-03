@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/js/bootstrap.bundle";
+import NavigationMenu from './Components/NavigationMenu';
 
 
 const root = ReactDOM.createRoot(
@@ -13,6 +14,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <NavigationMenu />
     <App />
   </React.StrictMode>
 );

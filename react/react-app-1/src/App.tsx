@@ -6,6 +6,7 @@ import About from "./Pages/About";
 import Contact from './Pages/Contact';
 import User from './Pages/User';
 import CompoentA from './Components/CompoentA';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export const data = createContext("");
 export const data1 = createContext("");
@@ -16,8 +17,18 @@ function App() {
 
   return (
     <>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='about' element={<About />} />
+          <Route path='contact' element={<Contact />} />
+          <Route path='user-master' element={<User userName={userName} />} />
+        </Routes>
+      </BrowserRouter>
+
       {/* <Home></Home> */}
-      <Home />
+      {/* <Home />
       <About />
       <Contact />
       <User userName={userName} />
@@ -25,7 +36,7 @@ function App() {
         <data1.Provider value="Mumbai">
           <CompoentA name={userName} address={'Pune'} />
         </data1.Provider>
-      </data.Provider>
+      </data.Provider> */}
     </>
   );
 }
