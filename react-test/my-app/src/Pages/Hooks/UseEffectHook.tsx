@@ -8,7 +8,7 @@ const UseEffectHook: React.FC = () => {
         setTimeout(() => {
             setCount((count) => count + 1);
         }, 1000);
-    });
+    }, []);
 
     return (
         <>
