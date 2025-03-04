@@ -14,7 +14,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/user-details' element={<User userName='John Doe' />} />
+        <Route path='/user-details' element={<User />} />
         <Route path='/react-hooks' element={<ReactHooks />} />
       </Routes>
     </BrowserRouter>
