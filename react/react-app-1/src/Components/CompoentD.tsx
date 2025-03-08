@@ -1,5 +1,6 @@
-import React from "react";
-import { data, data1 } from "../App";
+import React, { useContext } from "react";
+// import { data, data1 } from "../App";
+import { data, data1 } from "../Pages/Hooks/UseContextHook";
 
 interface ICompoentDProps {
     name: string;
@@ -8,6 +9,10 @@ interface ICompoentDProps {
 
 const CompoentD: React.FC<ICompoentDProps> = (props: ICompoentDProps) => {
     const { address, name }: ICompoentDProps = props;
+
+    const userName = useContext(data);
+    const userAddress = useContext(data1);
+
     return (
         <>
             <h1>Component D</h1>
@@ -17,7 +22,10 @@ const CompoentD: React.FC<ICompoentDProps> = (props: ICompoentDProps) => {
                 Address: {address}
             </p>
 
-            <p>
+            <h3>Name from useContext hook - {userName}</h3>
+            <h3>Address from useContext hook - {userAddress}</h3>
+
+            {/* <p>
                 <data.Consumer>
                     {
                         (name) => {
@@ -36,7 +44,7 @@ const CompoentD: React.FC<ICompoentDProps> = (props: ICompoentDProps) => {
                         }
                     }
                 </data.Consumer>
-            </p>
+            </p> */}
 
         </>
     )

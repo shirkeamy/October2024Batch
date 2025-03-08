@@ -7,7 +7,7 @@ import Contact from './Pages/Contact';
 import User from './Pages/User';
 import CompoentA from './Components/CompoentA';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import UseEffectHook from './Pages/Hooks/UseEffectHook';
+import ReactHooks from './Pages/Hooks/ReactHooks';
 
 export const data = createContext("");
 export const data1 = createContext("");
@@ -25,7 +25,7 @@ function App() {
           <Route path='about' element={<About />} />
           <Route path='contact' element={<Contact />} />
           <Route path='user-master' element={<User userName={userName} />} />
-          <Route path='hooks' element={<UseEffectHook />} />
+          <Route path='hooks' element={<ReactHooks />} />
         </Routes>
       </BrowserRouter>
 
