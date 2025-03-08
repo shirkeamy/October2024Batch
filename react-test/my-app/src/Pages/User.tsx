@@ -24,7 +24,7 @@ const User: React.FC<IUserProps> = (props: IUserProps) => {
             <p>
                 below is the Component A
             </p>
-            <ComponentA userName={userName} />
+            <ComponentA />
         </>
     )
 }

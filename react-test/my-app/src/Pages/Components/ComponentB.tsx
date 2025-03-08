@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { data, data1 } from "../Hooks/useContextHook";
 
-interface IComponentBProps {
-    userName: string;
-}
+const ComponentB: React.FC = () => {
+    const name = useContext(data);
+    const address = useContext(data1);
 
-const ComponentB: React.FC<IComponentBProps> = (props: IComponentBProps) => {
-    const { userName }: IComponentBProps = props;
     return (
         <>
             <h2>This is compoenet B</h2>
             <p>
-                Welcome to compoent B user, {userName}
+                Welcome to compoent B user, {name} and your address is, {address}.
             </p>
         </>
     )
