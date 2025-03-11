@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 const UseMemoHook: React.FC = () => {
     const [count, setCount] = useState<number>(0);
     const [operations, setOperations] = useState<string[]>([])
-    const calculation = expensiveCalculation(count);
+    const calculation = useMemo(() => { return largeCalculation(count) }, [count]);
 
     const increment = () => {
         setCount(count + 1);
@@ -15,15 +15,13 @@ const UseMemoHook: React.FC = () => {
     return (
         <>
 
-            <p>
-                <ol>
-                    <li>useMemo Hook returns a memoized value</li>
-                    <li>caching a value so that it does not need to be recalculated / recalled</li>
-                    <li>useMemo Hook only runs when one of its dependencies update</li>
-                    <li>The useMemo and useCallback Hooks are similar</li>
-                    <li>main difference is that useMemo returns a memoized value and useCallback returns a memoized function</li>
-                </ol>
-            </p>
+            <ol>
+                <li>useMemo Hook returns a memoized value</li>
+                <li>caching a value so that it does not need to be recalculated / recalled</li>
+                <li>useMemo Hook only runs when one of its dependencies update</li>
+                <li>The useMemo and useCallback Hooks are similar</li>
+                <li>main difference is that useMemo returns a memoized value and useCallback returns a memoized function</li>
+            </ol>
 
             <div>
                 <h2>My Todos</h2>
@@ -50,7 +48,7 @@ const UseMemoHook: React.FC = () => {
 export default UseMemoHook;
 
 
-const expensiveCalculation = (num: number) => {
+const largeCalculation = (num: number) => {
     console.log("Calculating...");
     for (let i = 0; i < 1000000000; i++) {
         num += 1;
