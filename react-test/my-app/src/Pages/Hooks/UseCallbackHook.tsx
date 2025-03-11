@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import DoOperation from "./DoOperation";
 
 const UseCallbackHook: React.FC = () => {
     const [operations, setOperations] = useState<string[]>([])
     const [count, setConut] = useState<number>(0);
 
-    const doOperation = () => {
+    const doOperation = useCallback(() => {
         setOperations((t) => [...t, "new operation"]);
-    }
+    },[operations])
+
     return (
         <>
             <p>

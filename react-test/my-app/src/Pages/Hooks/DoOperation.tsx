@@ -1,3 +1,4 @@
+import { memo } from "react";
 
 interface IOperationPorps {
     operations: string[];
@@ -21,4 +22,4 @@ const DoOperation: React.FC<IOperationPorps> = (props: IOperationPorps) => {
     )
 }
 
-export default DoOperation;
+export default memo(DoOperation);
