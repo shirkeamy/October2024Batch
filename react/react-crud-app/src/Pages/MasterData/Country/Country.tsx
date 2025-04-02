@@ -19,7 +19,7 @@ const Country: React.FC = () => {
         <>
             <div className="row">
                 <div className="col-12">
-                    <table className="table table-responsive table-hover table-bordered">
+                    <table className="table table-hover table-bordered">
                         <thead>
                             <tr key={`country-header`}>
                                 <th>Country Id</th>
