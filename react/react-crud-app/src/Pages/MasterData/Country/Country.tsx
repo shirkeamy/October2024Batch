@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GetCountries, ICountry } from "../../../Services/CountryServices";
+import CountryEdit from "./CountryEdit";
 
 const Country: React.FC = () => {
 
@@ -17,6 +18,8 @@ const Country: React.FC = () => {
 
     return (
         <>
+            <CountryEdit />
+            <hr />
             <div className="row">
                 <div className="col-12">
                     <table className="table table-hover table-bordered">
