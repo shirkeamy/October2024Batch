@@ -3,12 +3,12 @@ import React from "react";
 const Notfound: React.FC = () => {
     return (
         <>
-            <div className="row text-center">
-                <div className="col-12 text-cener">
-                    <h1 className="text-danger">404</h1>
-                    <h3 className="text-warning">Page not found!!!</h3>
-                    <p>
-                        Page you requested is not found...
+            <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
+                <div className="text-center">
+                    <h1 className="display-1 fw-bold text-danger">404</h1>
+                    <h2 className="display-4 text-warning">Opps! Page not found.</h2>
+                    <p className="lead">
+                        Page you requested is doesn't exists or has been moved. 
                     </p>
                 </div>
             </div>

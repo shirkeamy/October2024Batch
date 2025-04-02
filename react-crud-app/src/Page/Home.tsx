@@ -1,26 +1,72 @@
 import React from "react";
+import "./style.css"
 
 const Home: React.FC = () => {
     return (
         <>
-            <h2>Welcome to React CRUD operation</h2>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi distinctio, nisi non, quisquam quas animi provident eos unde, accusantium eum itaque quod. Laudantium, recusandae! Rem magni non numquam quas deserunt!
-            </p>
-            <hr />
-            <h3>Heading Section</h3>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, dicta!
-            </p>
+            { /* Hero Section */}
+            <header className="jumbotron text-center bg-primary text-white">
+                <h1 className="display-4">Welcome to React CRUD App</h1>
+                <p className="lead">A simple application with Create, Read, Update, and Delete operations.</p>
+                <p>We have covered three different module endpoints: <strong>Country, State, and City</strong>. More are coming to help you understand React and its components in detail.</p>
+                <a href="#" className="btn btn-light btn-lg">Get Started</a>
+            </header>
 
-            <ul>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, cupiditate.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem, ipsum.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quae vero aliquid nesciunt tenetur minus voluptate incidunt veniam temporibus consectetur.</li>
-                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas!</li>
-            </ul>
+            { /* Main Content */}
+            <div className="container text-center mt-4">
+                <div className="row">
+                    <div className="col-md-4">
+                        <div className="card feature-card shadow-lg border-primary">
+                            <div className="card-body">
+                                <h5 className="card-title text-primary">Create</h5>
+                                <p className="card-text">Add new records to the database.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="card feature-card shadow-lg border-success">
+                            <div className="card-body">
+                                <h5 className="card-title text-success">Read</h5>
+                                <p className="card-text">View stored records in a structured format.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="card feature-card shadow-lg border-danger">
+                            <div className="card-body">
+                                <h5 className="card-title text-danger">Update & Delete</h5>
+                                <p className="card-text">Modify or remove existing records.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container text-center mt-5">
+                <h2 className="mb-4">More Features</h2>
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="card shadow-lg border-info">
+                            <div className="card-body">
+                                <h5 className="card-title text-info">Authentication</h5>
+                                <p className="card-text">Secure login and registration with Basic authentication.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="card shadow-lg border-warning">
+                            <div className="card-body">
+                                <h5 className="card-title text-warning">API Integration</h5>
+                                <p className="card-text">Seamless integration with .NET Core APIs for real-time operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div className="container text-center mt-5">
+                <h2 className="mb-4">Why Choose Us?</h2>
+                <p className="lead">We provide an interactive learning experience with practical examples and hands-on coding.</p>
+            </div>
         </>
     )
 }
