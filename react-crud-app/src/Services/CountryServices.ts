@@ -34,3 +34,20 @@ export const GetCountries = async (countryId: number | null): Promise<ICountry[]
     }
 
 }
+
+export const SaveUpdateCountry = async (country: ICountry): Promise<boolean> => {
+
+    const response = await fetch("https://localhost:7164/api/Country",{
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(country)
+    })
+
+    if(response.ok)
+    {
+        const data: IApiResponse<ICountry> = await response.json();
+        return data.success;
+    }
+
+    return false;
+}

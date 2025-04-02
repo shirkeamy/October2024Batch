@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GetCountries, ICountry } from "../../Services/CountryServices";
+import CountryEdit from "./CountryEdit";
 
 const Country: React.FC = () => {
 
@@ -17,6 +18,12 @@ const Country: React.FC = () => {
     return (
         <>
             <h1>Country</h1>
+
+            <div className="row">
+                <div className="col-12">
+                    <CountryEdit />
+                </div>
+            </div>
 
             <div className="row">
                 <div className="col-12">
