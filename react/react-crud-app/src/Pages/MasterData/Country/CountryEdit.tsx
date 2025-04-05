@@ -1,8 +1,15 @@
-import React, { useState } from "react";
-import { ICountry, SaveUpdateCountry } from "../../../Services/CountryServices";
+import React, { useEffect, useState } from "react";
+import { GetCountries, ICountry, SaveUpdateCountry } from "../../../Services/CountryServices";
 
-const CountryEdit: React.FC = () => {
+interface ICountryEditProps {
+    countryId: number;
+    setIsSaved: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+const CountryEdit: React.FC<ICountryEditProps> = (props: ICountryEditProps) => {
+
+    const { countryId, setIsSaved }: ICountryEditProps = props;
+    console.log("countryId", countryId)
     const editEmptyData: ICountry = {
         countryId: 0,
         countryName: ""
@@ -11,8 +18,23 @@ const CountryEdit: React.FC = () => {
     const [countryEditData, setCountryEditData] = useState<ICountry>(editEmptyData);
 
     const postCountry = async () => {
-        await SaveUpdateCountry(countryEditData);
+        await SaveUpdateCountry(countryEditData)
+                .then(()=>{
+                    setCountryEditData(editEmptyData);
+                    setIsSaved(true);
+                });
     }
+
+    useEffect(() => {
+        if (countryId > 0) {
+            const fetchCountries = async () => {
+                const data = await GetCountries(countryId);
+                setCountryEditData(data[0]);
+            }
+            fetchCountries();
+        }
+    }, [countryId])
+
     return (
         <>
             <div className="row">
@@ -27,12 +49,12 @@ const CountryEdit: React.FC = () => {
                             <div className="col-12">
                                 <div className="form-group">
                                     <label htmlFor="txtCountryId">Country ID</label>
-                                    <input type="text" 
+                                    <input type="text"
                                         id="txtCountryId"
                                         className="form-control"
                                         disabled
                                         value={countryEditData.countryId}
-                                        />
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -45,27 +67,27 @@ const CountryEdit: React.FC = () => {
                                         id="txtCountryName"
                                         className="form-control"
                                         value={countryEditData.countryName}
-                                        onChange={(e)=>{
+                                        onChange={(e) => {
                                             let value = e.target.value;
                                             // let {value} = e.target;
-                                            setCountryEditData((rest)=>(
+                                            setCountryEditData((rest) => (
                                                 {
                                                     ...rest,
                                                     countryName: value
                                                 }
                                             ))
                                         }}
-                                        />
+                                    />
                                 </div>
                             </div>
                         </div>
 
                         <div className="row">
                             <div className="col-12 text-center">
-                                        <button type="button"
-                                            className="btn btn-primary"
-                                            onClick={postCountry}
-                                        >Save</button>
+                                <button type="button"
+                                    className="btn btn-primary"
+                                    onClick={postCountry}
+                                >Save</button>
                             </div>
                         </div>
                     </form>

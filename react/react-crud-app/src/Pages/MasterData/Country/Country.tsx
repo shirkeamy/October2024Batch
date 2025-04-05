@@ -5,20 +5,21 @@ import CountryEdit from "./CountryEdit";
 const Country: React.FC = () => {
 
     const [countryData, setCountryData] = useState<ICountry[]>([]);
+    const [countryId, setCountryId] = useState<number>(0);
+    const [isSaved, setIsSaved] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchCountries = async () => {
             const data = await GetCountries(null);
             setCountryData(data);
+            setIsSaved(false);
         }
         fetchCountries();
-    }, [])
-
-    console.log("countryData", countryData);
+    }, [isSaved])
 
     return (
         <>
-            <CountryEdit />
+            <CountryEdit countryId={countryId} setIsSaved={setIsSaved} />
             <hr />
             <div className="row">
                 <div className="col-12">
@@ -46,7 +47,12 @@ const Country: React.FC = () => {
                                     <tr key={`country-data-${index}`}>
                                         <td>{country.countryId}</td>
                                         <td>{country.countryName}</td>
-                                        <td><button className="btn btn-sm btn-primary" type="button">Edit</button></td>
+                                        <td>
+                                            <button
+                                                className="btn btn-sm btn-primary"
+                                                type="button"
+                                                onClick={()=>{setCountryId(country.countryId)}}
+                                            >Edit</button></td>
                                     </tr>
                                 ))
                             }
