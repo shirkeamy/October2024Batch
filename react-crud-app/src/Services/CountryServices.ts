@@ -51,3 +51,18 @@ export const SaveUpdateCountry = async (country: ICountry): Promise<boolean> => 
 
     return false;
 }
+
+export const DeleteCountry = async (countryId: number): Promise<boolean> => {
+
+    const response = await fetch(`https://localhost:7164/api/Country?countryId=${countryId}`,{
+        method: "DELETE"
+    })
+
+    if(response.ok)
+    {
+        const data: IApiResponse<string> = await response.json();
+        return data.success;
+    }
+
+    return false;
+}

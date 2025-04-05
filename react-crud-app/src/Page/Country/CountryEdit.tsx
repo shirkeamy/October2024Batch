@@ -1,8 +1,14 @@
-import React, { useState } from "react";
-import { ICountry, SaveUpdateCountry } from "../../Services/CountryServices";
+import React, { useEffect, useState } from "react";
+import { GetCountries, ICountry, SaveUpdateCountry } from "../../Services/CountryServices";
 
-const CountryEdit: React.FC = () => {
+interface ICountryProps {
+    countryId: number;
+    setIsSaved: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+const CountryEdit: React.FC<ICountryProps> = (props: ICountryProps) => {
+
+    const { countryId, setIsSaved }: ICountryProps = props;
     const editEmptyData: ICountry = {
         countryId: 0,
         countryName: ""
@@ -11,8 +17,25 @@ const CountryEdit: React.FC = () => {
     const [countryEditData, setCountryEditData] = useState<ICountry>(editEmptyData);
 
     const postCountry = async () => {
-        await SaveUpdateCountry(countryEditData)
+        await SaveUpdateCountry(countryEditData).then((data)=>{
+            if(data){
+                setIsSaved(true);
+                setCountryEditData(editEmptyData);
+            }
+        })
     }
+
+    useEffect(() => {
+        if (countryId > 0) {
+
+            const fetchCountries = async () => {
+                const data: ICountry[] = await GetCountries(countryId);
+                setCountryEditData(data[0]);
+            }
+
+            fetchCountries();
+        }
+    }, [countryId])
 
     return (
         <>
@@ -48,10 +71,10 @@ const CountryEdit: React.FC = () => {
                                         id="txtCountryName"
                                         className="form-control"
                                         value={countryEditData.countryName}
-                                        onChange={(e)=>{
+                                        onChange={(e) => {
                                             // const value = e.target.value;
                                             const { value } = e.target;
-                                            setCountryEditData((rest)=>({
+                                            setCountryEditData((rest) => ({
                                                 ...rest,
                                                 countryName: value
                                             }))
