@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DeleteCountry, GetCountries, ICountry } from "../../Services/CountryServices";
 import CountryEdit from "./CountryEdit";
+import Swal from "sweetalert2";
 
 const Country: React.FC = () => {
 
@@ -19,13 +20,37 @@ const Country: React.FC = () => {
     }, [isSaved])
 
     const deleteCountry = async (countyId: number) => {
-        if (window.confirm("Are you realy want to delete this country?") === true) {
-            await DeleteCountry(countyId).then((data) => {
-                if (data) {
-                    setIsSaved(true);
-                }
-            })
-        }
+        // if (window.confirm("Are you realy want to delete this country?") === true) {
+        //     await DeleteCountry(countyId).then((data) => {
+        //         if (data) {
+        //             setIsSaved(true);
+        //         }
+        //     })
+        // }
+
+        Swal.fire({
+            title: "Are you realy want to delete this country?",
+            text: "You won't be able to revert this!",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                await DeleteCountry(countyId).then((data) => {
+                    if (data) {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your country is deleted.",
+                            icon: "success"
+                        });
+                        setIsSaved(true);
+                    }
+                })
+            }
+        });
+
     }
 
     return (
