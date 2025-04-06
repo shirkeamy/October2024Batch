@@ -3,14 +3,13 @@ import React from "react";
 const NotFound: React.FC = () => {
     return (
         <>
-            <div className="align-item-center justify-content-center">
+            <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
                 <div className="text-center">
-                    <h1>404</h1>
-                    <h3>Page not found</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nesciunt nulla nam a perferendis velit, ad nihil quis qui rem. At quisquam, nobis quis nemo incidunt cupiditate dicta accusantium repudiandae rem magnam ea adipisci porro deserunt id voluptates ex debitis saepe asperiores soluta, unde vitae similique est! Culpa, laboriosam velit?
+                    <h1 className="display-1 fw-bold text-danger">404</h1>
+                    <h2 className="display-4 text-warning">Opps! Page not found.</h2>
+                    <p className="lead">
+                        Page you requested is doesn't exists or has been moved.
                     </p>
-                    <a href="/" className="btn bt-primary">Go back to Home</a>
                 </div>
             </div>
         </>
