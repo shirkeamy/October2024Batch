@@ -17,8 +17,15 @@ const CountryEdit: React.FC<ICountryProps> = (props: ICountryProps) => {
     const [countryEditData, setCountryEditData] = useState<ICountry>(editEmptyData);
 
     const postCountry = async () => {
-        await SaveUpdateCountry(countryEditData).then((data)=>{
-            if(data){
+        await SaveUpdateCountry(countryEditData).then((data) => {
+            if (data) {
+                if (countryEditData.countryId > 0) {
+                    alert("Country updated successfully.");
+                }
+                else {
+                    alert("Country saved successfully.");
+                }
+                setCountryEditData(editEmptyData);
                 setIsSaved(true);
                 setCountryEditData(editEmptyData);
             }
