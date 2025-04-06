@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GetCountries, ICountry, SaveUpdateCountry } from "../../../Services/CountryServices";
+import Swal from "sweetalert2";
 
 interface ICountryEditProps {
     countryId: number;
@@ -19,10 +20,17 @@ const CountryEdit: React.FC<ICountryEditProps> = (props: ICountryEditProps) => {
 
     const postCountry = async () => {
         await SaveUpdateCountry(countryEditData)
-                .then(()=>{
-                    setCountryEditData(editEmptyData);
-                    setIsSaved(true);
+            .then(() => {
+                setCountryEditData(editEmptyData);
+                setIsSaved(true);
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Contry Added successfully!",
+                    showConfirmButton: false,
+                    timer: 2000
                 });
+            });
     }
 
     useEffect(() => {
