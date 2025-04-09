@@ -9,7 +9,7 @@ const Home: React.FC = () => {
                 <h1 className="display-4">Welcome to React CRUD App</h1>
                 <p className="lead">A simple application with Create, Read, Update, and Delete operations.</p>
                 <p>We have covered three different module endpoints: <strong>Country, State, and City</strong>. More are coming to help you understand React and its components in detail.</p>
-                <a href="#" className="btn btn-light btn-lg">Get Started</a>
+                <a href="#" className="btn btn-outline-light">Get Started</a>
             </header>
 
             { /* Main Content */}
