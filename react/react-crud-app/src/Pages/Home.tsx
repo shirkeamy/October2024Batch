@@ -14,7 +14,7 @@ const Home: React.FC = () => {
             { /* Main Content */}
             <div className="container text-center mt-4">
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-3">
                         <div className="card feature-card shadow-lg border-primary">
                             <div className="card-body">
                                 <h5 className="card-title text-primary">Create</h5>
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-3">
                         <div className="card feature-card shadow-lg border-success">
                             <div className="card-body">
                                 <h5 className="card-title text-success">Read</h5>
@@ -30,11 +30,20 @@ const Home: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-3">
+                        <div className="card feature-card shadow-lg border-warning">
+                            <div className="card-body">
+                                <h5 className="card-title text-warning">Update</h5>
+                                <p className="card-text">Modify existing records.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="col-md-3">
                         <div className="card feature-card shadow-lg border-danger">
                             <div className="card-body">
-                                <h5 className="card-title text-danger">Update & Delete</h5>
-                                <p className="card-text">Modify or remove existing records.</p>
+                                <h5 className="card-title text-danger">Delete</h5>
+                                <p className="card-text">Remove existing records.</p>
                             </div>
                         </div>
                     </div>
