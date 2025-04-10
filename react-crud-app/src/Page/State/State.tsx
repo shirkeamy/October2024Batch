@@ -1,31 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { GetStates, IState } from "../../../Services/StateServices";
-import StateEdit from "./StateEdit";
+import { GetStates, IState } from "../../Services/StateServices";
 
 const State: React.FC = () => {
 
     const [stateData, setStateData] = useState<IState[]>([]);
-    const [stateId, setStateId] = useState<number>(0);
-    const [isSaved, setIsSaved] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchStates = async () => {
             const data: IState[] = await GetStates(null);
             setStateData(data);
-            setIsSaved(false);
         }
 
         fetchStates();
-    }, [isSaved])
+
+    }, []);
 
     return (
         <>
-            <StateEdit stateId={stateId} setIsSaved={setIsSaved} />
             <div className="row">
                 <div className="col-12">
-                    <table className="table table-hover table-bordered">
+                    <table className="table table-bordered table-hover">
                         <thead>
-                            <tr key={`state-header`}>
+                            <tr key={"state-heading"}>
                                 <th>State Id</th>
                                 <th>State Name</th>
                                 <th>Country Id</th>
@@ -43,15 +39,13 @@ const State: React.FC = () => {
                                         <td>{state.countryName}</td>
                                         <td>
                                             <button
-                                                className="btn btn-sm btn-primary m-1"
                                                 type="button"
-                                                onClick={() => { setStateId(state.stateId) }}
+                                                className="btn btn-primary btn-sm m-1"
                                             >Edit</button>
-
                                             <button
-                                                className="btn btn-sm btn-danger m-1"
                                                 type="button"
-                                            >delete</button>
+                                                className="btn btn-danger btn-sm m-1"
+                                            >Delete</button>
                                         </td>
                                     </tr>
                                 ))
@@ -59,11 +53,9 @@ const State: React.FC = () => {
                         </tbody>
                     </table>
                 </div>
-            </div >
-
+            </div>
         </>
     )
-
 }
 
 export default State;
