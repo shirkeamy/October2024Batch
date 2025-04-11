@@ -51,7 +51,7 @@ const State: React.FC = () => {
                                             <button
                                                 className="btn btn-sm btn-danger m-1"
                                                 type="button"
-                                            >delete</button>
+                                            >Delete</button>
                                         </td>
                                     </tr>
                                 ))
