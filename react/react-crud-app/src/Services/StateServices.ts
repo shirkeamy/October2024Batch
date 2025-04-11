@@ -46,7 +46,7 @@ export const SaveUpdateState = async (state: IStatePostData): Promise<boolean> =
     return false;
 }
 
-export const DeleteCountry = async (stateId: number): Promise<boolean> => {
+export const DeleteState = async (stateId: number): Promise<boolean> => {
     const response = await fetch(`https://localhost:7164/api/State?stateId=${stateId}`, {
         method: "DELETE"
     })
