@@ -1,8 +1,15 @@
 import React, { use, useEffect } from "react";
 import { GetStates, IState } from "../../../Services/StateServices";
-import { ICityPostData, SaveUpdateCity } from "../../../Services/CityServices";
+import { getCities, ICity, ICityPostData, SaveUpdateCity } from "../../../Services/CityServices";
+import Swal from "sweetalert2";
 
-const CityEdit: React.FC = () => {
+interface ICityEditProps {
+    cityId: number;
+    setIsSuccess: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const CityEdit: React.FC<ICityEditProps> = (props: ICityEditProps) => {
+    const { cityId, setIsSuccess }: ICityEditProps = props;
 
     const emptyEditData: ICityPostData = {
         cityId: 0,
@@ -22,8 +29,38 @@ const CityEdit: React.FC = () => {
         fetchStates();
     }, []);
 
+    useEffect(() => {
+        if (cityId > 0) {
+            const fetchCities = async () => {
+                const data: ICity[] = await getCities(cityId);
+                setCityEditData(data[0]);
+            }
+            fetchCities();
+        }
+    }, [cityId]);
+
     const onSaveClick = async () => {
-        await SaveUpdateCity(cityEditData)
+        await SaveUpdateCity(cityEditData).then((data) => {
+            if (data) {
+                setIsSuccess(true);
+                setCityEditData(emptyEditData);
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "City Added successfully!",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }else{
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "City not added successfully!",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        })
     }
 
     return (
