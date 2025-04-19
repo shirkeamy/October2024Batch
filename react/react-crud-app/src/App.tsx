@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './Pages/NotFound';
 import Country from './Pages/MasterData/Country/Country';
 import State from './Pages/MasterData/State/State';
+import City from './Pages/MasterData/City/City';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/country" element={<Country />} />
           <Route path="/state" element={<State />} />
+          <Route path="/city" element={<City />} />
 
           <Route path='*' element={<NotFound />} />
         </Routes>
