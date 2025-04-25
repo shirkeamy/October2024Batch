@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { GetCountries, ICountry, SaveUpdateCountry } from "../../../Services/CountryServices";
+import { GetCountries, SaveUpdateCountry } from "../../../Services/CountryServices";
 import Swal from "sweetalert2";
+import { ICountry } from "../../../Utils/Interfaces";
 
 interface ICountryEditProps {
     countryId: number;

@@ -1,7 +1,8 @@
 import React, { use, useEffect } from "react";
-import { GetStates, IState } from "../../../Services/StateServices";
-import { getCities, ICity, ICityPostData, SaveUpdateCity } from "../../../Services/CityServices";
+import { GetStates } from "../../../Services/StateServices";
+import { getCities, SaveUpdateCity } from "../../../Services/CityServices";
 import Swal from "sweetalert2";
+import { ICityPostData, IState, ICity } from "../../../Utils/Interfaces";
 
 interface ICityEditProps {
     cityId: number;

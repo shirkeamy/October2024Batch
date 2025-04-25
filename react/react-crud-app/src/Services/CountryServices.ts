@@ -1,13 +1,4 @@
-export interface IApiResponse<T> {
-    success: boolean;
-    errorMessage: string;
-    payload: T;
-}
-
-export interface ICountry {
-    countryId: number;
-    countryName: string;
-}
+import { ICountry, IApiResponse } from "../Utils/Interfaces";
 
 export const GetCountries = async (countryId: number | null): Promise<ICountry[]> => {
 

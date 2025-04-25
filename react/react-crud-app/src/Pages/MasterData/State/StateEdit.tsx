@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { GetStates, IStatePostData, SaveUpdateState } from "../../../Services/StateServices";
-import { GetCountries, ICountry } from "../../../Services/CountryServices";
+import { GetStates, SaveUpdateState } from "../../../Services/StateServices";
+import { GetCountries } from "../../../Services/CountryServices";
 import Swal from "sweetalert2";
+import { IStatePostData, ICountry } from "../../../Utils/Interfaces";
 
 interface IStateEditProps {
     stateId: number;

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { DeleteCity, getCities, ICity } from "../../../Services/CityServices";
+import { DeleteCity, getCities } from "../../../Services/CityServices";
 import CityEdit from "./CityEdit";
 import Swal from "sweetalert2";
+import { ICity } from "../../../Utils/Interfaces";
 
 const City: React.FC = () => {
 

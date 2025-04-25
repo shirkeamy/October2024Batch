@@ -1,19 +1,4 @@
-import { IApiResponse } from "./CountryServices";
-
-export interface ICity {
-    "cityId": number;
-    "cityName": string;
-    "stateId": number;
-    "stateName": string;
-    "countryId": number;
-    "countryName": string;
-}
-
-export interface ICityPostData {
-    "cityId": number;
-    "cityName": string;
-    "stateId": number;
-}
+import { IApiResponse, ICity, ICityPostData } from "../Utils/Interfaces";
 
 export const getCities = async (cityId: number | null): Promise<ICity[]> => {
 
