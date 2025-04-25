@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { getCities, ICity } from "../../../Services/CityServices";
+import { DeleteCity, getCities, ICity } from "../../../Services/CityServices";
 import CityEdit from "./CityEdit";
+import Swal from "sweetalert2";
 
 const City: React.FC = () => {
 
@@ -16,6 +17,33 @@ const City: React.FC = () => {
         }
         fetchCities();
     }, [isSuccess]);
+
+    const onDeleteClick = async (cityId: number) => {
+        Swal.fire({
+            title: "Are you sure you want to delete this city?",
+            text: "This will delete your all dependant data as well",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                await DeleteCity(cityId).then((data) => {
+                    if (data) {
+                        setIsSuccess(true);
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "City deleted successfully!",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                })
+            }
+        });
+    }
 
     return (
         <>
@@ -52,7 +80,11 @@ const City: React.FC = () => {
                                                     type="button"
                                                     onClick={() => { setCityId(city.cityId) }}
                                                 >Edit</button>
-                                                <button className="btn btn-sm btn-danger m-1" type="button">Delete</button>
+                                                <button
+                                                    className="btn btn-sm btn-danger m-1"
+                                                    type="button"
+                                                    onClick={() => { onDeleteClick(city.cityId) }}
+                                                >Delete</button>
                                             </td>
                                         </tr>
                                     )
