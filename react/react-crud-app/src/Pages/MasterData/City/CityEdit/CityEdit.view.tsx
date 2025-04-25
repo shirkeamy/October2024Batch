@@ -1,68 +1,20 @@
 import React, { use, useEffect } from "react";
-import { GetStates } from "../../../Services/StateServices";
-import { getCities, SaveUpdateCity } from "../../../Services/CityServices";
+import { GetStates } from "../../../../Services/StateServices";
+import { getCities, SaveUpdateCity } from "../../../../Services/CityServices";
 import Swal from "sweetalert2";
-import { ICityPostData, IState, ICity } from "../../../Utils/Interfaces";
+import { ICityPostData, IState, ICity } from "../../../../Utils/Interfaces";
 
-interface ICityEditProps {
-    cityId: number;
-    setIsSuccess: React.Dispatch<React.SetStateAction<boolean>>
+interface ICityEditViewProps {
+    cityEditData: ICityPostData;
+    setCityEditData: React.Dispatch<React.SetStateAction<ICityPostData>>;
+    stateData: IState[];
+    setIsSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+    onSaveClick: () => Promise<void>;
 }
 
-const CityEdit: React.FC<ICityEditProps> = (props: ICityEditProps) => {
-    const { cityId, setIsSuccess }: ICityEditProps = props;
-
-    const emptyEditData: ICityPostData = {
-        cityId: 0,
-        cityName: "",
-        stateId: 0
-    }
-
-    const [stateData, setStateData] = React.useState<IState[]>([]);
-    const [cityEditData, setCityEditData] = React.useState<ICityPostData>(emptyEditData)
-
-    useEffect(() => {
-        const fetchStates = async () => {
-            const data: IState[] = await GetStates(null);
-            setStateData(data);
-        }
-
-        fetchStates();
-    }, []);
-
-    useEffect(() => {
-        if (cityId > 0) {
-            const fetchCities = async () => {
-                const data: ICity[] = await getCities(cityId);
-                setCityEditData(data[0]);
-            }
-            fetchCities();
-        }
-    }, [cityId]);
-
-    const onSaveClick = async () => {
-        await SaveUpdateCity(cityEditData).then((data) => {
-            if (data) {
-                setIsSuccess(true);
-                setCityEditData(emptyEditData);
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "City Added successfully!",
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            } else {
-                Swal.fire({
-                    position: "center",
-                    icon: "error",
-                    title: "City not added successfully!",
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            }
-        })
-    }
+const CityEditView: React.FC<ICityEditViewProps> = (props: ICityEditViewProps) => {
+    
+    const { cityEditData, setCityEditData, stateData, setIsSuccess, onSaveClick }: ICityEditViewProps = props;
 
     return (
         <>
@@ -158,4 +110,4 @@ const CityEdit: React.FC<ICityEditProps> = (props: ICityEditProps) => {
     )
 }
 
-export default CityEdit;
+export default CityEditView;

@@ -1,54 +1,28 @@
 import React, { useEffect } from "react";
 import { DeleteCity, getCities } from "../../../Services/CityServices";
-import CityEdit from "./CityEdit";
+import CityEdit from "./CityEdit/CityEdit.view";
 import Swal from "sweetalert2";
 import { ICity } from "../../../Utils/Interfaces";
+import CityEditLogic from "./CityEdit/CityEdit.logic";
 
-const City: React.FC = () => {
+interface ICityViewProps {
+    cityId: number;
+    setIsSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+    setCityId: React.Dispatch<React.SetStateAction<number>>;
+    cityData: ICity[];
+    onDeleteClick: (cityId: number) => Promise<void>;
+}
 
-    const [cityData, setCityData] = React.useState<ICity[]>([]);
-    const [cityId, setCityId] = React.useState<number>(0);
-    const [isSuccess, setIsSuccess] = React.useState<boolean>(false);
+const CityView: React.FC<ICityViewProps> = (props: ICityViewProps) => {
 
-    useEffect(() => {
-        const fetchCities = async () => {
-            const data: ICity[] = await getCities(null);
-            setCityData(data);
-            setIsSuccess(false);
-        }
-        fetchCities();
-    }, [isSuccess]);
-
-    const onDeleteClick = async (cityId: number) => {
-        Swal.fire({
-            title: "Are you sure you want to delete this city?",
-            text: "This will delete your all dependant data as well",
-            icon: "question",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                await DeleteCity(cityId).then((data) => {
-                    if (data) {
-                        setIsSuccess(true);
-                        Swal.fire({
-                            position: "center",
-                            icon: "success",
-                            title: "City deleted successfully!",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                })
-            }
-        });
-    }
+    const { cityData, cityId, onDeleteClick, setCityId, setIsSuccess }: ICityViewProps = props;
 
     return (
         <>
-            <CityEdit cityId={cityId} setIsSuccess={setIsSuccess} />
+            <CityEditLogic
+                cityId={cityId}
+                setIsSuccess={ setIsSuccess }
+            />
 
             <div className="row">
                 <div className="col-12">
@@ -99,4 +73,4 @@ const City: React.FC = () => {
     )
 }
 
-export default City;
+export default CityView;
