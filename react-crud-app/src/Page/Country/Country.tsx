@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { DeleteCountry, GetCountries, ICountry } from "../../Services/CountryServices";
+import { DeleteCountry, GetCountries } from "../../Services/CountryServices";
 import CountryEdit from "./CountryEdit";
 import Swal from "sweetalert2";
+import { ICountry } from "../../Utils/Interfaces";
 
 const Country: React.FC = () => {
 

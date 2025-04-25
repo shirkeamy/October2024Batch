@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { DeleteState, GetStates, IState } from "../../Services/StateServices";
+import { DeleteState, GetStates } from "../../Services/StateServices";
 import StateEdit from "./StateEdit";
 import Swal from "sweetalert2";
+import { IState } from "../../Utils/Interfaces";
 
 const State: React.FC = () => {
 
