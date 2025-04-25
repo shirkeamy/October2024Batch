@@ -1,58 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { DeleteCountry, GetCountries } from "../../Services/CountryServices";
-import CountryEdit from "./CountryEdit";
+import CountryEditView from "./CountryEdit/CountryEdit.view";
 import Swal from "sweetalert2";
 import { ICountry } from "../../Utils/Interfaces";
+import CountryEditLogic from "./CountryEdit/CountryEdit.logic";
 
-const Country: React.FC = () => {
+interface ICountryViewProps {
+    countryId: number;
+    countryData: ICountry[];
+    setIsSaved: React.Dispatch<React.SetStateAction<boolean>>;
+    setCountryId: React.Dispatch<React.SetStateAction<number>>;
+    deleteCountry: (countryId: number) => void;
+}
 
-    const [countryData, setCountryData] = useState<ICountry[]>([]);
-    const [countryId, setCountryId] = useState<number>(0);
-    const [isSaved, setIsSaved] = useState<boolean>(false);
+const CountryView: React.FC<ICountryViewProps> = (props: ICountryViewProps) => {
 
-    useEffect(() => {
-        const fetchCountries = async () => {
-            const data: ICountry[] = await GetCountries(null);
-            setCountryData(data);
-            setIsSaved(false);
-        }
-
-        fetchCountries();
-    }, [isSaved])
-
-    const deleteCountry = async (countyId: number) => {
-        // if (window.confirm("Are you realy want to delete this country?") === true) {
-        //     await DeleteCountry(countyId).then((data) => {
-        //         if (data) {
-        //             setIsSaved(true);
-        //         }
-        //     })
-        // }
-
-        Swal.fire({
-            title: "Are you realy want to delete this country?",
-            text: "You won't be able to revert this!",
-            icon: "question",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                await DeleteCountry(countyId).then((data) => {
-                    if (data) {
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your country is deleted.",
-                            icon: "success"
-                        });
-                        setIsSaved(true);
-                    }
-                })
-            }
-        });
-
-    }
+    const { countryId, setIsSaved, countryData, setCountryId, deleteCountry }: ICountryViewProps = props;
 
     return (
         <>
@@ -60,7 +23,7 @@ const Country: React.FC = () => {
 
             <div className="row">
                 <div className="col-12">
-                    <CountryEdit countryId={countryId} setIsSaved={setIsSaved} />
+                    <CountryEditLogic countryId={countryId} setIsSaved={setIsSaved} />
                 </div>
             </div>
 
@@ -104,4 +67,4 @@ const Country: React.FC = () => {
     )
 }
 
-export default Country;
+export default CountryView;

@@ -2,8 +2,8 @@ import React from 'react';
 import Home from './Page/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Notfound from './Page/Notfound';
-import Country from './Page/Country/Country';
 import State from './Page/State/State';
+import CountryLogic from './Page/Country/Country.logic';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/country' element={<Country />} />
+        <Route path='/country' element={<CountryLogic />} />
         <Route path='/state' element={<State />} />
 
         <Route path='*' element={<Notfound />} />

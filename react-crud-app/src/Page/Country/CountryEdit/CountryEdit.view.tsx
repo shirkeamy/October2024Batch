@@ -1,61 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { GetCountries, SaveUpdateCountry } from "../../Services/CountryServices";
+import { GetCountries, SaveUpdateCountry } from "../../../Services/CountryServices";
 import Swal from "sweetalert2";
-import { ICountry } from "../../Utils/Interfaces";
+import { ICountry } from "../../../Utils/Interfaces";
 
 interface ICountryProps {
-    countryId: number;
-    setIsSaved: React.Dispatch<React.SetStateAction<boolean>>;
+    countryEditData: ICountry;
+    setCountryEditData: React.Dispatch<React.SetStateAction<ICountry>>;
+    postCountry: () => void;
 }
 
-const CountryEdit: React.FC<ICountryProps> = (props: ICountryProps) => {
+const CountryEditView: React.FC<ICountryProps> = (props: ICountryProps) => {
 
-    const { countryId, setIsSaved }: ICountryProps = props;
-    const editEmptyData: ICountry = {
-        countryId: 0,
-        countryName: ""
-    }
-
-    const [countryEditData, setCountryEditData] = useState<ICountry>(editEmptyData);
-
-    const postCountry = async () => {
-        await SaveUpdateCountry(countryEditData).then((data) => {
-            if (data) {
-                if (countryEditData.countryId > 0) {
-                    // alert("Country updated successfully.");
-                    Swal.fire({
-                        title: "Updated!",
-                        text: "Country updated successfully.",
-                        icon: "success"
-                    });
-                }
-                else {
-                    // alert("Country saved successfully.");
-                    Swal.fire({
-                        title: "Saved!",
-                        text: "Country saved successfully.",
-                        icon: "success"
-                    });
-                }
-                setCountryEditData(editEmptyData);
-                setIsSaved(true);
-                setCountryEditData(editEmptyData);
-            }
-        })
-    }
-
-    useEffect(() => {
-        if (countryId > 0) {
-
-            const fetchCountries = async () => {
-                const data: ICountry[] = await GetCountries(countryId);
-                setCountryEditData(data[0]);
-            }
-
-            fetchCountries();
-        }
-    }, [countryId])
-
+    const { countryEditData, setCountryEditData, postCountry }: ICountryProps = props;
+    
     return (
         <>
             <div className="row text-center">
@@ -123,4 +80,4 @@ const CountryEdit: React.FC<ICountryProps> = (props: ICountryProps) => {
     )
 }
 
-export default CountryEdit;
+export default CountryEditView;
