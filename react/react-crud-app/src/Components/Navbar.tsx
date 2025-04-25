@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
                         </li> */}
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                                Dropdown link
+                                Master
                             </a>
                             <div className="dropdown-menu">
                                 <a className="dropdown-item" href="/country">Country</a>

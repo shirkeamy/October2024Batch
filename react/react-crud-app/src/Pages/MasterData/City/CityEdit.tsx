@@ -51,7 +51,7 @@ const CityEdit: React.FC<ICityEditProps> = (props: ICityEditProps) => {
                     showConfirmButton: false,
                     timer: 2000
                 });
-            }else{
+            } else {
                 Swal.fire({
                     position: "center",
                     icon: "error",
@@ -66,10 +66,13 @@ const CityEdit: React.FC<ICityEditProps> = (props: ICityEditProps) => {
     return (
         <>
             <div className="row">
-                <div className="col-12">
+                <div className="col-12 text-center">
                     <h1>Edit City</h1>
                 </div>
-                <div className="col-12">
+            </div>
+            <div className="row m-5 pb-5">
+                <div className="col-4"></div>
+                <div className="col-4">
                     <form>
                         <div className="row">
                             <div className="col-12">
@@ -136,7 +139,7 @@ const CityEdit: React.FC<ICityEditProps> = (props: ICityEditProps) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row text-center">
                             <div className="col-12">
                                 <div className="form-group">
                                     <button
