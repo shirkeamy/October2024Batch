@@ -1,55 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { DeleteState, GetStates } from "../../../Services/StateServices";
-import StateEdit from "./StateEdit";
 import Swal from "sweetalert2";
-import { IState } from "../../../Utils/Interfaces";
+import { IState, IStatePostData } from "../../../Utils/Interfaces";
+import StateEditView from "./StateEdit/StateEdit.view";
+import StateEditLogic from "./StateEdit/StateEdit.logic";
 
-const State: React.FC = () => {
+interface IStateProps {
+    stateId: number;
+    stateData: IState[];
+    setIsSaved: React.Dispatch<React.SetStateAction<boolean>>;
+    setStateId: React.Dispatch<React.SetStateAction<number>>;
+    onDeleteClick: (stateId: number) => Promise<void>;
+}
 
-    const [stateData, setStateData] = useState<IState[]>([]);
-    const [stateId, setStateId] = useState<number>(0);
-    const [isSaved, setIsSaved] = useState<boolean>(false);
+const StateView: React.FC<IStateProps> = (props: IStateProps) => {
 
-    useEffect(() => {
-        const fetchStates = async () => {
-            const data: IState[] = await GetStates(null);
-            setStateData(data);
-            setIsSaved(false);
-        }
+    const { stateData, stateId, onDeleteClick, setStateId, setIsSaved }: IStateProps = props;
 
-        fetchStates();
-    }, [isSaved])
-
-    const onDeleteClick = async (stateId: number) => {
-        Swal.fire({
-            title: "Are you sure you want to delete this state?",
-            text: "This will delete your all dependant data as well",
-            icon: "question",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                await DeleteState(stateId).then((data) => {
-                    if (data) {
-                        setIsSaved(true);
-                        Swal.fire({
-                            position: "center",
-                            icon: "success",
-                            title: "State deleted successfully!",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                })
-            }
-        });
-    }
 
     return (
         <>
-            <StateEdit stateId={stateId} setIsSaved={setIsSaved} />
+
+            <StateEditLogic setIsSaved={setIsSaved} stateId={stateId} />
+
             <div className="row">
                 <div className="col-12">
                     <table className="table table-hover table-bordered">
@@ -96,4 +69,4 @@ const State: React.FC = () => {
 
 }
 
-export default State;
+export default StateView;

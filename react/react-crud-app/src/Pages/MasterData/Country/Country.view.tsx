@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { DeleteCountry, GetCountries } from "../../../Services/CountryServices";
-import CountryEdit from "./CountryEdit";
 import Swal from "sweetalert2";
 import { ICountry } from "../../../Utils/Interfaces";
+import CountryEditLogic from "./CountryEdit/CountryEdit.logic";
 
 interface ICountryViewProps {
     countryId: number;
@@ -18,7 +18,10 @@ const CountryView: React.FC<ICountryViewProps> = (props: ICountryViewProps) => {
 
     return (
         <>
-            <CountryEdit countryId={countryId} setIsSaved={setIsSaved} />
+            <CountryEditLogic
+                countryId={ countryId }
+                setIsSaved={ setIsSaved }
+            />
             <hr />
             <div className="row">
                 <div className="col-12">

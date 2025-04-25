@@ -1,48 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { GetCountries, SaveUpdateCountry } from "../../../Services/CountryServices";
-import Swal from "sweetalert2";
-import { ICountry } from "../../../Utils/Interfaces";
+import React from "react";
+import { ICountry } from "../../../../Utils/Interfaces";
 
 interface ICountryEditProps {
-    countryId: number;
+    countryEditData: ICountry;
     setIsSaved: React.Dispatch<React.SetStateAction<boolean>>;
+    setCountryEditData: React.Dispatch<React.SetStateAction<ICountry>>;
+    postCountry: () => Promise<void>;
 }
 
-const CountryEdit: React.FC<ICountryEditProps> = (props: ICountryEditProps) => {
+const CountryEditView: React.FC<ICountryEditProps> = (props: ICountryEditProps) => {
 
-    const { countryId, setIsSaved }: ICountryEditProps = props;
-    console.log("countryId", countryId)
-    const editEmptyData: ICountry = {
-        countryId: 0,
-        countryName: ""
-    }
-
-    const [countryEditData, setCountryEditData] = useState<ICountry>(editEmptyData);
-
-    const postCountry = async () => {
-        await SaveUpdateCountry(countryEditData)
-            .then(() => {
-                setCountryEditData(editEmptyData);
-                setIsSaved(true);
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Contry Added successfully!",
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            });
-    }
-
-    useEffect(() => {
-        if (countryId > 0) {
-            const fetchCountries = async () => {
-                const data = await GetCountries(countryId);
-                setCountryEditData(data[0]);
-            }
-            fetchCountries();
-        }
-    }, [countryId])
+    const { countryEditData, setCountryEditData, postCountry }: ICountryEditProps = props;
 
     return (
         <>
@@ -107,4 +75,4 @@ const CountryEdit: React.FC<ICountryEditProps> = (props: ICountryEditProps) => {
     )
 }
 
-export default CountryEdit;
+export default CountryEditView;

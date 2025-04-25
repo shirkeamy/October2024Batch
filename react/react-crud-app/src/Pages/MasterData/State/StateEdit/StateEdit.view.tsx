@@ -1,60 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { GetStates, SaveUpdateState } from "../../../Services/StateServices";
-import { GetCountries } from "../../../Services/CountryServices";
+import { GetStates, SaveUpdateState } from "../../../../Services/StateServices";
+import { GetCountries } from "../../../../Services/CountryServices";
 import Swal from "sweetalert2";
-import { IStatePostData, ICountry } from "../../../Utils/Interfaces";
+import { IStatePostData, ICountry } from "../../../../Utils/Interfaces";
 
 interface IStateEditProps {
-    stateId: number;
-    setIsSaved: React.Dispatch<React.SetStateAction<boolean>>;
+    stateEditData: IStatePostData;
+    setStateEditData: React.Dispatch<React.SetStateAction<IStatePostData>>;
+    countryData: ICountry[];
+    postState: () => Promise<void>;
 }
 
-const StateEdit: React.FC<IStateEditProps> = (props: IStateEditProps) => {
+const StateEditView: React.FC<IStateEditProps> = (props: IStateEditProps) => {
 
-    const { stateId, setIsSaved }: IStateEditProps = props;
-
-    const editEmptyData: IStatePostData = {
-        stateId: 0,
-        stateName: "",
-        countryId: 0
-    }
-
-    const [stateEditData, setStateEditData] = useState<IStatePostData>(editEmptyData);
-    const [countryData, setCountryData] = useState<ICountry[]>([]);
-
-    useEffect(() => {
-        const fetchCountries = async () => {
-            const data = await GetCountries(null);
-            setCountryData(data);
-        }
-        fetchCountries();
-    }, [])
-
-    useEffect(() => {
-        if (stateId > 0) {
-            const fetchStates = async () => {
-                const data = await GetStates(stateId);
-                setStateEditData(data[0]);
-            }
-
-            fetchStates();
-        }
-    }, [stateId])
-
-    const postState = async () => {
-        await SaveUpdateState(stateEditData)
-            .then(() => {
-                setStateEditData(editEmptyData);
-                setIsSaved(true);
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "State Added successfully!",
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            });
-    }
+    const { stateEditData, setStateEditData, countryData, postState }: IStateEditProps = props;
+    
 
     return (
         <>
@@ -147,4 +107,4 @@ const StateEdit: React.FC<IStateEditProps> = (props: IStateEditProps) => {
     )
 }
 
-export default StateEdit;
+export default StateEditView;
