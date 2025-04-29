@@ -1,4 +1,4 @@
-import Courses from "./Courses/Courses";
+import CoursesLogic from "./Courses/Courses.logic";
 
 const InstituteDetails: React.FC = () => {
     return (
@@ -14,7 +14,7 @@ const InstituteDetails: React.FC = () => {
             <div className="tab-content" id="myTabContent">
                 <div className="tab-pane fade show active" id="courses" role="tabpanel" aria-labelledby="courses-tab">
                     <h1>Course</h1>
-                    <Courses />
+                    <CoursesLogic />
                 </div>
                 <div className="tab-pane fade" id="subjects" role="tabpanel" aria-labelledby="subjects-tab">
                     <h1>Subjects</h1>

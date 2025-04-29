@@ -37,3 +37,8 @@ export interface ICityPostData {
     "cityName": string;
     "stateId": number;
 }
+
+export interface ICourse {
+    courseId: number;
+    courseName: string;
+}
