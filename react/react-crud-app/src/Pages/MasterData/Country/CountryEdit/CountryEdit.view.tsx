@@ -1,5 +1,7 @@
 import React from "react";
 import { ICountry } from "../../../../Utils/Interfaces";
+import InputWrapper from "../../../../Components/FormComponents/InputWrapper";
+import { InputType } from "../../../../Utils/Enums";
 
 interface ICountryEditProps {
     countryEditData: ICountry;
@@ -26,13 +28,14 @@ const CountryEditView: React.FC<ICountryEditProps> = (props: ICountryEditProps) 
                         <div className="row">
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label htmlFor="txtCountryId">Country ID</label>
-                                    <input type="text"
-                                        id="txtCountryId"
-                                        className="form-control"
-                                        disabled
+                                    <InputWrapper
+                                        title={"Country ID"}
+                                        id={"txtCountryId"}
+                                        type={InputType.Text}
                                         value={countryEditData.countryId}
+                                        isDisabled={true}
                                     />
+
                                 </div>
                             </div>
                         </div>
@@ -40,10 +43,11 @@ const CountryEditView: React.FC<ICountryEditProps> = (props: ICountryEditProps) 
                         <div className="row">
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label htmlFor="txtCountryName">Country Name</label>
-                                    <input type="text"
-                                        id="txtCountryName"
-                                        className="form-control"
+
+                                    <InputWrapper
+                                        title={"Country Name"}
+                                        id={"txtCountryName"}
+                                        type={InputType.Text}
                                         value={countryEditData.countryName}
                                         onChange={(e) => {
                                             let value = e.target.value;
