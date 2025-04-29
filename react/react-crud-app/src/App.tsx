@@ -5,6 +5,7 @@ import NotFound from './Pages/NotFound';
 import CountryLogic from './Pages/MasterData/Country/Country.logic';
 import StateLogic from './Pages/MasterData/State/State.logic';
 import CityLogic from './Pages/MasterData/City/City.logic';
+import InstituteDetails from './Pages/InstituteMaster/InstituteDetails';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/country" element={<CountryLogic />} />
           <Route path="/state" element={<StateLogic />} />
           <Route path="/city" element={<CityLogic />} />
+          <Route path="/crud/institute" element={<InstituteDetails />} />
 
           <Route path='*' element={<NotFound />} />
         </Routes>
