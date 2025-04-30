@@ -47,3 +47,16 @@ export interface IDropdownData {
     value: string | number;
     text: string;
 }
+
+export interface ISubject {
+    subjectId: number;
+    subjectName: string;
+    courseId: number;
+    courseName: string;
+}
+
+export interface ISubjectPostData {
+    subjectId: number;
+    subjectName: string;
+    courseId: number;
+}
