@@ -3,6 +3,7 @@ import { GetStates, SaveUpdateState } from "../../../../Services/StateServices";
 import { GetCountries } from "../../../../Services/CountryServices";
 import Swal from "sweetalert2";
 import { IStatePostData, ICountry } from "../../../../Utils/Interfaces";
+import DropdownWrapper from "../../../../Components/FormComponents/DropdownWrapper";
 
 interface IStateEditProps {
     stateEditData: IStatePostData;
@@ -14,7 +15,7 @@ interface IStateEditProps {
 const StateEditView: React.FC<IStateEditProps> = (props: IStateEditProps) => {
 
     const { stateEditData, setStateEditData, countryData, postState }: IStateEditProps = props;
-    
+
 
     return (
         <>
@@ -67,9 +68,15 @@ const StateEditView: React.FC<IStateEditProps> = (props: IStateEditProps) => {
                         <div className="row">
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label htmlFor="drpCountry">Country</label>
-                                    <select id="drpCountry" className="form-control"
-                                        value={stateEditData.countryId}
+                                    <DropdownWrapper
+                                        id={"drpCountry"}
+                                        title={"Country"}
+                                        optionsData={
+                                            countryData.map((country: ICountry) => ({
+                                                value: country.countryId,
+                                                text: country.countryName
+                                            }))}
+                                        selectedValue={stateEditData.countryId}
                                         onChange={(e) => {
                                             let value = e.target.value;
                                             setStateEditData((rest) => (
@@ -78,16 +85,9 @@ const StateEditView: React.FC<IStateEditProps> = (props: IStateEditProps) => {
                                                     countryId: Number(value)
                                                 }
                                             ))
-                                        }}>
-                                        <option value="0" key="country-data">Select Country</option>
-                                        {
-                                            countryData.map((country: ICountry, index: number) => {
-                                                return (
-                                                    <option value={country.countryId} key={`country-data-${index}`}>{country.countryName}</option>
-                                                )
-                                            })
-                                        }
-                                    </select>
+                                        }}
+                                    />
+
                                 </div>
                             </div>
                         </div>

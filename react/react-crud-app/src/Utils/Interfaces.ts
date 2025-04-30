@@ -42,3 +42,8 @@ export interface ICourse {
     courseId: number;
     courseName: string;
 }
+
+export interface IDropdownData {
+    value: string | number;
+    text: string;
+}
