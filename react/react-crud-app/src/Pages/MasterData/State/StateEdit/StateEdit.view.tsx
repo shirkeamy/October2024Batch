@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { GetStates, SaveUpdateState } from "../../../../Services/StateServices";
-import { GetCountries } from "../../../../Services/CountryServices";
-import Swal from "sweetalert2";
+import React, { Dispatch, SetStateAction } from "react";
 import { IStatePostData, ICountry } from "../../../../Utils/Interfaces";
 import DropdownWrapper from "../../../../Components/FormComponents/DropdownWrapper";
 import InputWrapper from "../../../../Components/FormComponents/InputWrapper";
@@ -9,7 +6,7 @@ import { InputType } from "../../../../Utils/Enums";
 
 interface IStateEditProps {
     stateEditData: IStatePostData;
-    setStateEditData: React.Dispatch<React.SetStateAction<IStatePostData>>;
+    setStateEditData: Dispatch<SetStateAction<IStatePostData>>;
     countryData: ICountry[];
     postState: () => Promise<void>;
 }
