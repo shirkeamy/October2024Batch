@@ -10,11 +10,12 @@ interface IInputWrapperProps {
     className?: string;
     isDisabled?: boolean;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+    validationText?: string;
 }
 
 const InputWrapper: React.FC<IInputWrapperProps> = (props: IInputWrapperProps) => {
 
-    const { title, name, id, type, value, className, isDisabled, onChange }: IInputWrapperProps = props;
+    const { title, name, id, type, value, className, isDisabled, onChange, validationText }: IInputWrapperProps = props;
 
     return (
         <>
@@ -28,6 +29,10 @@ const InputWrapper: React.FC<IInputWrapperProps> = (props: IInputWrapperProps) =
                 disabled={isDisabled}
                 onChange={onChange}
             />
+            {
+                validationText &&
+                <span className="text-danger">{validationText}</span>
+            }
         </>
     )
 }
