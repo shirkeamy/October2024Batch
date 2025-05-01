@@ -4,6 +4,8 @@ import { GetCountries } from "../../../../Services/CountryServices";
 import Swal from "sweetalert2";
 import { IStatePostData, ICountry } from "../../../../Utils/Interfaces";
 import DropdownWrapper from "../../../../Components/FormComponents/DropdownWrapper";
+import InputWrapper from "../../../../Components/FormComponents/InputWrapper";
+import { InputType } from "../../../../Utils/Enums";
 
 interface IStateEditProps {
     stateEditData: IStatePostData;
@@ -31,12 +33,12 @@ const StateEditView: React.FC<IStateEditProps> = (props: IStateEditProps) => {
                         <div className="row">
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label htmlFor="txtStateId">State ID</label>
-                                    <input type="text"
-                                        id="txtStateId"
-                                        className="form-control"
-                                        disabled
+                                    <InputWrapper
+                                        title={"State ID"}
+                                        id={"txtStateId"}
+                                        type={InputType.Text}
                                         value={stateEditData.stateId}
+                                        isDisabled={true}
                                     />
                                 </div>
                             </div>
@@ -45,10 +47,10 @@ const StateEditView: React.FC<IStateEditProps> = (props: IStateEditProps) => {
                         <div className="row">
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label htmlFor="txtStateName">State Name</label>
-                                    <input type="text"
-                                        id="txtStateName"
-                                        className="form-control"
+                                    <InputWrapper
+                                        title={"State Name"}
+                                        id={"txtStateName"}
+                                        type={InputType.Text}
                                         value={stateEditData.stateName}
                                         onChange={(e) => {
                                             let value = e.target.value;
