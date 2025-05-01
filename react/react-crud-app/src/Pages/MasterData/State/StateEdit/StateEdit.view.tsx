@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import { IStatePostData, ICountry } from "../../../../Utils/Interfaces";
 import DropdownWrapper from "../../../../Components/FormComponents/DropdownWrapper";
 import InputWrapper from "../../../../Components/FormComponents/InputWrapper";
@@ -15,6 +15,26 @@ const StateEditView: React.FC<IStateEditProps> = (props: IStateEditProps) => {
 
     const { stateEditData, setStateEditData, countryData, postState }: IStateEditProps = props;
 
+    const [error, setError] = useState<{ [key: string]: string }>({})
+
+    const validateData = () => {
+        const errorObj: { [key: string]: string } = {};
+
+        if (stateEditData.stateName === "" || stateEditData.stateName === undefined || stateEditData.stateName === null) {
+            errorObj.txtStateName = "State name is required";
+        }
+        if (stateEditData.countryId === 0) {
+            errorObj.drpCountry = "Country is required";
+        }
+        setError(errorObj)
+        return Object.keys(errorObj).length === 0;
+    }
+
+    const handleOnSave = () => {
+        if (validateData()) {
+            postState();
+        }
+    }
 
     return (
         <>
@@ -58,7 +78,9 @@ const StateEditView: React.FC<IStateEditProps> = (props: IStateEditProps) => {
                                                     stateName: value
                                                 }
                                             ))
+                                            setError({ ...error, txtStateName: "" })
                                         }}
+                                        validationText={error.txtStateName}
                                     />
                                 </div>
                             </div>
@@ -77,14 +99,16 @@ const StateEditView: React.FC<IStateEditProps> = (props: IStateEditProps) => {
                                             }))}
                                         selectedValue={stateEditData.countryId}
                                         onChange={(e) => {
-                                            let value = e.target.value;
+                                            let { value, id } = e.target;
                                             setStateEditData((rest) => (
                                                 {
                                                     ...rest,
                                                     countryId: Number(value)
                                                 }
                                             ))
+                                            setError({ ...error, [id]: "" })
                                         }}
+                                        validationText={error.drpCountry}
                                     />
 
                                 </div>
@@ -95,7 +119,7 @@ const StateEditView: React.FC<IStateEditProps> = (props: IStateEditProps) => {
                             <div className="col-12 text-center">
                                 <button type="button"
                                     className="btn btn-primary"
-                                    onClick={postState}
+                                    onClick={handleOnSave}
                                 >Save</button>
                             </div>
                         </div>

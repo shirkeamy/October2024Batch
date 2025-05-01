@@ -1,8 +1,11 @@
-import React, { use, useEffect } from "react";
+import React, { use, useEffect, useState } from "react";
 import { GetStates } from "../../../../Services/StateServices";
 import { getCities, SaveUpdateCity } from "../../../../Services/CityServices";
 import Swal from "sweetalert2";
 import { ICityPostData, IState, ICity } from "../../../../Utils/Interfaces";
+import InputWrapper from "../../../../Components/FormComponents/InputWrapper";
+import { InputType } from "../../../../Utils/Enums";
+import DropdownWrapper from "../../../../Components/FormComponents/DropdownWrapper";
 
 interface ICityEditViewProps {
     cityEditData: ICityPostData;
@@ -13,8 +16,23 @@ interface ICityEditViewProps {
 }
 
 const CityEditView: React.FC<ICityEditViewProps> = (props: ICityEditViewProps) => {
-    
+
     const { cityEditData, setCityEditData, stateData, setIsSuccess, onSaveClick }: ICityEditViewProps = props;
+    const [error, setError] = useState<{ [key: string]: string }>({})
+    const validateData = () => {
+        const errorObj: { [key: string]: string } = {};
+
+        if (cityEditData.cityName === "" || cityEditData.cityName === undefined || cityEditData.cityName === null) {
+            errorObj.cityName = "City Name is required";
+        }
+
+        if (cityEditData.stateId === 0) {
+            errorObj.stateId = "State is required";
+        }
+
+        setError(errorObj)
+        return Object.keys(errorObj).length === 0;
+    }
 
     return (
         <>
@@ -30,13 +48,12 @@ const CityEditView: React.FC<ICityEditViewProps> = (props: ICityEditViewProps) =
                         <div className="row">
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label htmlFor="cityId">City Id</label>
-                                    <input type="text"
-                                        className="form-control"
-                                        id="cityId"
-                                        placeholder="City Id"
-                                        disabled
+                                    <InputWrapper
+                                        title={"City ID"}
+                                        id={"txtCityId"}
+                                        type={InputType.Text}
                                         value={cityEditData.cityId}
+                                        isDisabled={true}
                                     />
                                 </div>
                             </div>
@@ -44,11 +61,10 @@ const CityEditView: React.FC<ICityEditViewProps> = (props: ICityEditViewProps) =
                         <div className="row">
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label htmlFor="cityName">City Name</label>
-                                    <input type="text"
-                                        className="form-control"
-                                        id="cityName"
-                                        placeholder="City Name"
+                                    <InputWrapper
+                                        title={"City Name"}
+                                        id={"cityName"}
+                                        type={InputType.Text}
                                         value={cityEditData.cityName}
                                         onChange={(e) => {
                                             const value = e.target.value;
@@ -58,7 +74,9 @@ const CityEditView: React.FC<ICityEditViewProps> = (props: ICityEditViewProps) =
                                                     cityName: value
                                                 }
                                             })
+                                            setError({ ...error, cityName: "" })
                                         }}
+                                        validationText={error.cityName}
                                     />
                                 </div>
                             </div>
@@ -66,10 +84,17 @@ const CityEditView: React.FC<ICityEditViewProps> = (props: ICityEditViewProps) =
                         <div className="row">
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label htmlFor="stateId">State</label>
-                                    <select name="" id="drpState"
-                                        className="form-control"
-                                        value={cityEditData.stateId}
+                                    <DropdownWrapper
+                                        title={"State"}
+                                        id={"drpState"}
+                                        selectedValue={cityEditData.stateId}
+                                        optionsData={stateData.map((state: IState) => {
+                                            return {
+                                                value: state.stateId,
+                                                text: state.stateName
+                                            }
+                                        }
+                                        )}
                                         onChange={(e) => {
                                             const value = e.target.value;
                                             setCityEditData((rest) => {
@@ -78,17 +103,10 @@ const CityEditView: React.FC<ICityEditViewProps> = (props: ICityEditViewProps) =
                                                     stateId: parseInt(value)
                                                 }
                                             })
+                                            setError({ ...error, stateId: "" })
                                         }}
-                                    >
-                                        <option value="0">Please Select</option>
-                                        {
-                                            stateData.map((state: IState, index: number) => {
-                                                return (
-                                                    <option key={index} value={state.stateId}>{state.stateName}</option>
-                                                )
-                                            })
-                                        }
-                                    </select>
+                                        validationText={error.stateId}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -98,7 +116,11 @@ const CityEditView: React.FC<ICityEditViewProps> = (props: ICityEditViewProps) =
                                     <button
                                         type="button"
                                         className="btn btn-primary"
-                                        onClick={onSaveClick}
+                                        onClick={() => {
+                                            if (validateData()) {
+                                                onSaveClick();
+                                            }
+                                        }}
                                     >Save</button>
                                 </div>
                             </div>

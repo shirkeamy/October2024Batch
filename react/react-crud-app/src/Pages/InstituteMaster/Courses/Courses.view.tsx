@@ -9,7 +9,7 @@ interface ICoursesLogicProps {
     setIsSaved: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CoursesLogic: React.FC<ICoursesLogicProps> = (props: ICoursesLogicProps) => {
+const CoursesView: React.FC<ICoursesLogicProps> = (props: ICoursesLogicProps) => {
     const { courseData, setCourseId, onDeleteClick, courseId, setIsSaved }: ICoursesLogicProps = props;
     return (
         <>
@@ -55,4 +55,4 @@ const CoursesLogic: React.FC<ICoursesLogicProps> = (props: ICoursesLogicProps) =
     )
 }
 
-export default CoursesLogic;
+export default CoursesView;

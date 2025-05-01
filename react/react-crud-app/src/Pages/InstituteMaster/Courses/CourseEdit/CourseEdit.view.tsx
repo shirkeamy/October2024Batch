@@ -1,4 +1,4 @@
-import { Dispatch } from "react";
+import { Dispatch, useState } from "react";
 import { ICourse } from "../../../../Utils/Interfaces";
 import InputWrapper from "../../../../Components/FormComponents/InputWrapper";
 import { InputType } from "../../../../Utils/Enums";
@@ -12,6 +12,19 @@ interface ICourseEditViewProps {
 
 const CourseEditView: React.FC<ICourseEditViewProps> = (props: ICourseEditViewProps) => {
     const { setCourseEditData, courseEditData, setIsSaved, postCourse }: ICourseEditViewProps = props;
+
+    const [error, setError] = useState<{ [key: string]: string }>({})
+    const validateData = () => {
+        const errorObj: { [key: string]: string } = {};
+
+        if (courseEditData.courseName === "" || courseEditData.courseName === undefined || courseEditData.courseName === null) {
+            errorObj.courseName = "Course Name is required";
+        }
+
+        setError(errorObj)
+        return Object.keys(errorObj).length === 0;
+    }
+
     return (
         <>
             <div className="row">
@@ -56,7 +69,10 @@ const CourseEditView: React.FC<ICourseEditViewProps> = (props: ICourseEditViewPr
                                                     courseName: value
                                                 }
                                             ))
+                                            setError({ ...error, courseName: "" })
+
                                         }}
+                                        validationText={error.courseName}
                                     />
                                 </div>
                             </div>
@@ -66,7 +82,11 @@ const CourseEditView: React.FC<ICourseEditViewProps> = (props: ICourseEditViewPr
                             <div className="col-12 text-center">
                                 <button type="button"
                                     className="btn btn-primary"
-                                    onClick={postCourse}
+                                    onClick={() => {
+                                        if (validateData()) {
+                                            postCourse();
+                                        }
+                                    }}
                                 >Save</button>
                             </div>
                         </div>

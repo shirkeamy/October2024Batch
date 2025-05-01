@@ -1,10 +1,10 @@
 import { useState, useEffect, SetStateAction } from "react";
 import { DeleteCourse, GetCourses } from "../../../Services/InstituteServives";
 import { ICourse } from "../../../Utils/Interfaces";
-import CoursesLogic from "./Courses.view";
+import CoursesView from "./Courses.view";
 import Swal from "sweetalert2";
 
-const Courses: React.FC = () => {
+const CoursesLogic: React.FC = () => {
 
     const [courseData, setCourseData] = useState<ICourse[]>([]);
     const [courseId, setCourseId] = useState<number>(0);
@@ -48,7 +48,7 @@ const Courses: React.FC = () => {
     }
 
     return (
-        <CoursesLogic
+        <CoursesView
             courseData={courseData}
             setCourseId={setCourseId}
             onDeleteClick={onDeleteClick}
@@ -58,4 +58,4 @@ const Courses: React.FC = () => {
     )
 }
 
-export default Courses;
+export default CoursesLogic;

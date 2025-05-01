@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ICountry } from "../../../../Utils/Interfaces";
 import InputWrapper from "../../../../Components/FormComponents/InputWrapper";
 import { InputType } from "../../../../Utils/Enums";
@@ -13,6 +13,17 @@ interface ICountryEditProps {
 const CountryEditView: React.FC<ICountryEditProps> = (props: ICountryEditProps) => {
 
     const { countryEditData, setCountryEditData, postCountry }: ICountryEditProps = props;
+    const [error, setError] = useState<{ [key: string]: string }>({})
+    const validateData = () => {
+        const errorObj: { [key: string]: string } = {};
+
+        if (countryEditData.countryName === "" || countryEditData.countryName === undefined || countryEditData.countryName === null) {
+            errorObj.countryName = "Country Name is required";
+        }
+
+        setError(errorObj)
+        return Object.keys(errorObj).length === 0;
+    }
 
     return (
         <>
@@ -58,7 +69,10 @@ const CountryEditView: React.FC<ICountryEditProps> = (props: ICountryEditProps) 
                                                     countryName: value
                                                 }
                                             ))
+                                            setError({ ...error, countryName: "" })
                                         }}
+                                        validationText={error.countryName}
+
                                     />
                                 </div>
                             </div>
@@ -68,7 +82,11 @@ const CountryEditView: React.FC<ICountryEditProps> = (props: ICountryEditProps) 
                             <div className="col-12 text-center">
                                 <button type="button"
                                     className="btn btn-primary"
-                                    onClick={postCountry}
+                                    onClick={() => {
+                                        if (validateData()) {
+                                            postCountry();
+                                        }
+                                    }}
                                 >Save</button>
                             </div>
                         </div>

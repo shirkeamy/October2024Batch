@@ -1,6 +1,8 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import { ISubjectPostData, ICourse } from "../../../../Utils/Interfaces";
 import DropdownWrapper from "../../../../Components/FormComponents/DropdownWrapper";
+import InputWrapper from "../../../../Components/FormComponents/InputWrapper";
+import { InputType } from "../../../../Utils/Enums";
 
 interface ISubjectEditProps {
     subjectEditData: ISubjectPostData;
@@ -13,7 +15,22 @@ const SubjectEditView: React.FC<ISubjectEditProps> = (props: ISubjectEditProps) 
 
     const { courseData, postData, setSubjectEditData, subjectEditData }: ISubjectEditProps = props;
 
-    console.log("SubjectEditView", subjectEditData);
+    const [error, setError] = useState<{ [key: string]: string }>({})
+    const validateData = () => {
+        const errorObj: { [key: string]: string } = {};
+
+        if (subjectEditData.subjectName === "" || subjectEditData.subjectName === undefined || subjectEditData.subjectName === null) {
+            errorObj.subjectName = "Subject Name is required";
+        }
+
+        if (subjectEditData.courseId === 0) {
+            errorObj.course = "Course is required";
+        }
+
+        setError(errorObj)
+        return Object.keys(errorObj).length === 0;
+    }
+
     return (
         <>
             <div className="row">
@@ -28,12 +45,12 @@ const SubjectEditView: React.FC<ISubjectEditProps> = (props: ISubjectEditProps) 
                         <div className="row">
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label htmlFor="txtSubjectId">Subject ID</label>
-                                    <input type="text"
-                                        id="txtSubjectId"
-                                        className="form-control"
-                                        disabled
+                                    <InputWrapper
+                                        title={"Subject ID"}
+                                        id={"txtSubjectId"}
+                                        type={InputType.Text}
                                         value={subjectEditData.subjectId}
+                                        isDisabled={true}
                                     />
                                 </div>
                             </div>
@@ -42,10 +59,10 @@ const SubjectEditView: React.FC<ISubjectEditProps> = (props: ISubjectEditProps) 
                         <div className="row">
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label htmlFor="txtSubjectName">Subject Name</label>
-                                    <input type="text"
-                                        id="txtSubjectName"
-                                        className="form-control"
+                                    <InputWrapper
+                                        title={"Subject Name"}
+                                        id={"txtSubjectName"}
+                                        type={InputType.Text}
                                         value={subjectEditData.subjectName}
                                         onChange={(e) => {
                                             let value = e.target.value;
@@ -56,7 +73,9 @@ const SubjectEditView: React.FC<ISubjectEditProps> = (props: ISubjectEditProps) 
                                                     subjectName: value
                                                 }
                                             ))
+                                            setError({ ...error, course: "" })
                                         }}
+                                        validationText={error.course}
                                     />
                                 </div>
                             </div>
@@ -85,7 +104,9 @@ const SubjectEditView: React.FC<ISubjectEditProps> = (props: ISubjectEditProps) 
                                                     courseId: Number(value)
                                                 }
                                             ))
+                                            setError({ ...error, course: "" })
                                         }}
+                                        validationText={error.course}
                                     />
 
                                 </div>
@@ -96,7 +117,11 @@ const SubjectEditView: React.FC<ISubjectEditProps> = (props: ISubjectEditProps) 
                             <div className="col-12 text-center">
                                 <button type="button"
                                     className="btn btn-primary"
-                                    onClick={postData}
+                                    onClick={() => {
+                                        if (validateData()) {
+                                            postData()
+                                        }
+                                    }}
                                 >Save</button>
                             </div>
                         </div>
